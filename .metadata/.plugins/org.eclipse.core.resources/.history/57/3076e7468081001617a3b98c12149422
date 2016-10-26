@@ -1,0 +1,23 @@
+package pubmed.author;
+
+import org.json.JSONException;
+
+import pubmed.author.sql.SQLConnection;
+
+public class Main {
+	public static void main( String[] args ) throws JSONException, Exception
+    {
+    	System.out.println("MAIN THREAD: START");
+    	SQLConnection con = new SQLConnection("localhost", "3306", "paul", "paul", "[paul3514]");
+    	con.open();
+    	
+		Authors a = new Authors("27132542", con);
+		a.start();
+    	
+    	while(!a.isDone){
+    		Thread.sleep(40);
+    	}
+    	con.close();
+    	
+    }
+}

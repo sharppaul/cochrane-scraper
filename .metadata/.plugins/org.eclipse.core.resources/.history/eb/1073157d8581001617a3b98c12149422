@@ -1,0 +1,48 @@
+package pubmed.author;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.JSONException;
+
+import pubmed.author.sql.SQLConnection;
+
+public class Main {
+	public final int LIVE_THREADS = 4;
+	private Authors[] a = new Authors[LIVE_THREADS];
+	private ArrayList<String> list;
+	private Iterator<String> it;
+	
+	
+	public static void main( String[] args ) throws JSONException, Exception
+    {
+    	new Main();
+    }
+	
+	public Main(){
+		System.out.println("MAIN THREAD: START");
+    	SQLConnection con = new SQLConnection("localhost", "3306", "paul", "paul", "[paul3514]");
+    	con.open();
+    	
+    	list = con.getReferences();
+    	it = list.iterator();
+    	
+    	
+		Authors a = new Authors("27132542", con);
+		a.start();
+    	
+    	while(!a.isDone){
+    		Thread.sleep(40);
+    	}
+    	
+    	
+    	con.close();
+    	System.out.println("MAIN THREAD: DONE");
+	}
+	
+	public run(){
+		while(it.hasNext()){
+    		System.out.println(it.next());
+    	}
+	}
+}

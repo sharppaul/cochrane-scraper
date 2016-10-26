@@ -1,0 +1,17 @@
+package pubmed.author;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.JSONException;
+
+import pubmed.author.sql.SQLConnection;
+
+public class Main {
+	public final int LIVE_THREADS = 4;
+	private Authors[] a = new Authors[LIVE_THREADS];
+	public static void main( String[] args ) throws JSONException, Exception
+    {
+    	new Main();
+    }
+}

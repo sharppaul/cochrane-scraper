@@ -1,0 +1,13 @@
+1470924297578	Delete element
+1470924987402	Rename type 'App'
+1470925327504	Rename type 'Get'
+1470937617212	Rename field 'outputdir'
+1470937951775	Rename field 'outputFolder'
+1470938202797	Rename type 'Iterator'
+1470938251048	Rename type 'Parser'
+1470938313631	Rename type 'CochraneTopicIterator'
+1470938332916	Rename type 'CochraneTopics'
+1470938419369	Move compilation units
+1470938429333	Move compilation unit
+1470938432904	Move compilation unit
+1470938724898	Infer generic type arguments

@@ -1,0 +1,10 @@
+1472209186420	Rename package 'sql.connection'
+1472209357227	Rename type 'Version'
+1472209438915	Rename type 'Connect'
+1472209460607	Rename type 'Connection'
+1472209726219	Rename local variable 'pass'
+1472211320620	Rename local variable 'pst'
+1472219439351	Delete elements
+1472220314010	Copy packages
+1472221108673	Copy compilation unit
+1472221115911	Copy compilation units
