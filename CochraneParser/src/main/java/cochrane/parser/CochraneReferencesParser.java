@@ -25,6 +25,9 @@ public class CochraneReferencesParser extends Thread {
 		for (int i = 0; i < cIds.length; i++) {
 			if (cIds[i].startsWith("CD") || cIds[i].startsWith("MR"))
 				this.cochraneId = cIds[i];
+			if(cIds[i].startsWith("pub") && this.cochraneId != null){
+				this.cochraneId += "." + cIds[i];
+			}
 		}
 
 		this.con = con;
