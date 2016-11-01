@@ -14,6 +14,7 @@ public class CochraneArticleIterator extends Thread {
 	private final String TOPIC_BASE_URL = "http://www.cochranelibrary.com/topic/";
 	private SQLConnection con;
 	private final boolean SHOULD_BE_FREE = false;
+	public boolean done = false;
 
 	public CochraneArticleIterator(String outputFolder, String topic) {
 		this.outputDir = outputFolder;
@@ -50,12 +51,12 @@ public class CochraneArticleIterator extends Thread {
 					}
 				}
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("ITERATING THROUGH ARTICLES FAILED");
+			System.err.println("ITERATING THROUGH ARTICLES FAILED " + this.topic);
 		} finally {
 			con.close();
+			done = true;
 		}
 	}
 

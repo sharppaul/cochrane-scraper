@@ -14,6 +14,7 @@ import cochrane.parser.tools.URLEncoder;
 
 public class CochraneTopicIterator {
 	public ArrayList<String> topics = new ArrayList<String>();
+	public ArrayList<CochraneArticleIterator> topicThreads = new ArrayList<CochraneArticleIterator>();
 
 	public CochraneTopicIterator() {
 		try {
@@ -46,7 +47,24 @@ public class CochraneTopicIterator {
 		Iterator<String> i = topics.iterator();
 		while (i.hasNext()) {
 			String topic = i.next();
-			new CochraneArticleIterator(outputDir + "\\" + topic, URLEncoder.encode(topic)).start();
+			CochraneArticleIterator e = new CochraneArticleIterator(outputDir + "\\" + topic, URLEncoder.encode(topic));
+			topicThreads.add(e);
+			e.start();
+		}
+		// Checking if they're done:
+		Iterator<CochraneArticleIterator> caii;
+		boolean done = false;
+		
+		while (!done){
+			//get size, check if topic is done, if so, decrease size, if all topics are done, size should be below 1. (0)
+			caii = topicThreads.iterator();
+			int topicslive = topics.size();
+			while (caii.hasNext())
+				if (caii.next().done) {
+					topicslive--;
+					if (topicslive < 1)
+						done = true;
+				}
 		}
 	}
 
@@ -55,9 +73,9 @@ public class CochraneTopicIterator {
 		int x = 0;
 		while (i.hasNext()) {
 			x++;
-			if(Arrays.asList(indexes).contains(x)){
+			if (Arrays.asList(indexes).contains(x)) {
 				String topic = i.next();
-				new CochraneArticleIterator(outputDir+"\\"+topic, URLEncoder.encode(topic)).start();
+				new CochraneArticleIterator(outputDir + "\\" + topic, URLEncoder.encode(topic)).start();
 			}
 		}
 	}
