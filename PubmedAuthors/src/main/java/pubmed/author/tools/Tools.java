@@ -2,6 +2,7 @@ package pubmed.author.tools;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
 
 public class Tools {
 	public static String toSHA1(byte[] convertme) {
@@ -24,7 +25,8 @@ public class Tools {
 	
 	@SuppressWarnings("resource")
 	public static String convertStreamToString(java.io.InputStream is) {
-	    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+	    Scanner s = new Scanner(is);
+	    s = s.useDelimiter("\\A");
 	    return s.hasNext() ? s.next() : "";
 	}
 }

@@ -43,6 +43,28 @@ public class CochraneTopicIterator {
 		}
 	}
 
+	public void parseTopic(String outputDir, int t) {
+		Iterator<String> i = topics.iterator();
+		CochraneArticleIterator cai = new CochraneArticleIterator(outputDir + "/none", URLEncoder.encode("none"));
+		cai.done = true;
+		int x = 1;
+		while (i.hasNext()) {
+			String topic = i.next();
+			if (x == t) {
+				cai = new CochraneArticleIterator(outputDir + "/" + topic, URLEncoder.encode(topic));
+				cai.start();
+			}
+			x++;
+		}
+		while (!cai.done) {
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException ex) {
+			}
+		}
+		System.out.println("DONE WITH ALL TOPIC(s)");
+	}
+
 	public void parseTopics(String outputDir) {
 		Iterator<String> i = topics.iterator();
 		while (i.hasNext()) {
@@ -51,12 +73,13 @@ public class CochraneTopicIterator {
 			topicThreads.add(e);
 			e.start();
 		}
-		// Checking if they're done:
+		// Checking if threads are done:
 		Iterator<CochraneArticleIterator> caii;
 		boolean done = false;
-		
-		while (!done){
-			//get size, check if topic is done, if so, decrease size, if all topics are done, size should be below 1. (0)
+
+		while (!done) {
+			// get size, check if topic is done, if so, decrease size, if all
+			// topics are done, size should be below 1. (0)
 			caii = topicThreads.iterator();
 			int topicslive = topics.size();
 			while (caii.hasNext())
@@ -66,6 +89,7 @@ public class CochraneTopicIterator {
 						done = true;
 				}
 		}
+		System.out.println("DONE WITH ALL TOPIC(s)");
 	}
 
 	public void parseTopics(String outputDir, int[] indexes) {

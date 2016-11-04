@@ -23,7 +23,8 @@ public class Main {
 				String str2 = scan.next();
 				if (str2.equalsIgnoreCase("Y")) {
 					System.out.println("Starting...");
-					cti.parseTopics(System.getProperty("user.home") + "\\parserOutput");
+					//cti.parseTopics(System.getProperty("user.home") + "/parserOutput");
+					cti.parseTopic(System.getProperty("user.home") + "/parserOutput",1);
 				}
 			} 
 			scan.close();

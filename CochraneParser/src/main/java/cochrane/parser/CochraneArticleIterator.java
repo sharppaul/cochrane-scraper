@@ -38,7 +38,7 @@ public class CochraneArticleIterator extends Thread {
 
 					if (isFree(article)) {
 						new CochraneReferencesParser(outputDir, link, this.con, this.topic).run();
-						this.delay(10);
+						this.delay(100);
 					}
 				}
 

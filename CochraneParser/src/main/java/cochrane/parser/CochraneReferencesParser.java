@@ -2,6 +2,7 @@ package cochrane.parser;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
@@ -19,14 +20,15 @@ public class CochraneReferencesParser extends Thread {
 	private SQLConnection con;
 	private String outputDir;
 	private boolean outputToFile = false;
+	private String cochraneIdName;
 
 	public CochraneReferencesParser(String outputDir, String cochraneUrl, SQLConnection con, String topic) {
 		String[] cIds = cochraneUrl.split("\\.|\\/");
 		for (int i = 0; i < cIds.length; i++) {
 			if (cIds[i].startsWith("CD") || cIds[i].startsWith("MR"))
-				this.cochraneId = cIds[i];
+				this.cochraneIdName = this.cochraneId = cIds[i];
 			if (cIds[i].startsWith("pub") && this.cochraneId != null) {
-				this.cochraneId += "." + cIds[i];
+				this.cochraneIdName += "." + cIds[i];
 			}
 		}
 
@@ -39,11 +41,11 @@ public class CochraneReferencesParser extends Thread {
 	@Override
 	public void run() {
 		if (cochraneId == null) {
-			System.err.println("FAIL  \tparsing :: No ID found in URL: " + this.cochraneUrl);
+			System.err.println("FAIL  \t\tparsing :: No ID found in URL: " + this.cochraneUrl);
 			return;
 		}
 
-		System.out.println("START \tparsing " + this.cochraneId);
+		System.out.println("START \t\tparsing " + this.cochraneIdName);
 		PrintWriter out;
 		String html = "";
 		Document doc = null;
@@ -66,16 +68,29 @@ public class CochraneReferencesParser extends Thread {
 				System.out.println("SKIPPED_SUCCESS: " + this.cochraneId + " No 'References' found.");
 				return;
 			}
-			
+
 			Elements datalinks = datacontent.getElementsByTag("a");
-			for(Element link : datalinks){
+			for (Element link : datalinks) {
 				if (link.html().equals("Download statistical data")) {
-					String rm5link = "http://onlinelibrary.wiley.com" + link.attr("href");
-					//TODO: download the RM5 files from the rm5link. It's a post request with a hidden link & checkbox. Hidden link is the download URL.
+					//got the download statistical data link (aka. rm5 file)
+					String linkrm5 = null;
+					try {
+						linkrm5 = URLDecoder.decode(link.attr("href").split("downloadLink=")[1], "UTF-8")
+								.replaceAll("&amp;", "&");
+						//decode it to get it.
+					} catch (Exception e) {
+						// try/catch for the maybe arrayoutofbounds and other unexpected errors which may not be fatal.
+					}
+					System.out.println("\t" + linkrm5);
+					File file = new File(this.outputDir + "/" + cochraneIdName + ".rm5");
+					file.getParentFile().mkdirs();
+					out = new PrintWriter(file);
+					out.print(Getter.getHTML(linkrm5));
+					out.close();
+					break;
 				}
 			}
-			
-			
+
 			Elements referencelinks = referencescontent.getElementsByTag("a");
 			ArrayList<String> referencedids = new ArrayList<String>();
 			for (Element link : referencelinks) {
@@ -85,23 +100,24 @@ public class CochraneReferencesParser extends Thread {
 				}
 			}
 
-			con.insertReferences(cochraneId, referencedids, topic);
+			con.insertReferences(cochraneIdName, referencedids, topic);
 
 			if (outputToFile) {
-				File file = new File(this.outputDir + "\\" + cochraneId + ".out");
+				File file = new File(this.outputDir + "/" + cochraneIdName + ".out");
 				file.getParentFile().mkdirs();
 				out = new PrintWriter(file);
-				out.println("#PubMed references for Cochrane ID: " + cochraneId);
+				out.println("#PubMed references for Cochrane ID: " + cochraneIdName);
 				for (String id : referencedids) {
-						out.println(id);
+					out.println(id);
 				}
 				out.close();
 			}
 
 		} catch (Exception e) {
-			System.err.println("FAILED \tparsing " + this.cochraneId + " :: " + e.getMessage().replace('\n', ' '));
+			System.err.println("FAILED \tparsing " + this.cochraneIdName + ": " + e + ", " + e.getMessage());
+			e.printStackTrace();
 			return;
 		}
-		System.out.println("SUCCESS \tparsing " + this.cochraneId);
+		System.out.println("SUCCESS \tparsing " + this.cochraneIdName);
 	}
 }

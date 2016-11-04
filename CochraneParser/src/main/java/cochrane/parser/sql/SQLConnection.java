@@ -19,7 +19,7 @@ public class SQLConnection {
 	public static SQLConnection local = new SQLConnection("localhost", "3306", "cochranereferences", "root", "");
 
 	public SQLConnection(String IP, String port, String dbname, String username, String password) {
-		this.url = "jdbc:mysql://" + IP + ":" + port + "/" + dbname;
+		this.url = "jdbc:mysql://" + IP + ":" + port + "/" + dbname + "?autoReconnect=true&useSSL=false";
 		this.user = username;
 		this.password = password;
 	}
