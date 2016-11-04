@@ -22,11 +22,14 @@ public class Tools {
 		}
 		return result;
 	}
-	
+
+	// I ignore the resource warning, because the inputstream should be closed
+	// after calling this method. It is not initialized here and should not be
+	// closed here.
 	@SuppressWarnings("resource")
 	public static String convertStreamToString(java.io.InputStream is) {
-	    Scanner s = new Scanner(is);
-	    s = s.useDelimiter("\\A");
-	    return s.hasNext() ? s.next() : "";
+		Scanner s = new Scanner(is);
+		s = s.useDelimiter("\\A");
+		return s.hasNext() ? s.next() : "";
 	}
 }
