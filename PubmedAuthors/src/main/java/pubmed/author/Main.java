@@ -38,10 +38,10 @@ public class Main {
 
 	private void run() throws InterruptedException {
 		while (it.hasNext()) {
-			for (Authors auth : authors) {
-				if(null == auth || !auth.isDone) {
-					auth = new Authors(it.next(), this.con);
-					auth.start();
+			for (int i = 0; i < authors.length; i++) {
+				if(null == authors[i] || authors[i].isDone) {
+					authors[i] = new Authors(it.next(), this.con);
+					authors[i].start();
 				}
 				Thread.sleep(100);
 			}

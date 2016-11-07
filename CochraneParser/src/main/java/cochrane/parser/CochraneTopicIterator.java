@@ -1,7 +1,6 @@
 package cochrane.parser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
 import org.jsoup.Jsoup;
@@ -15,7 +14,7 @@ import cochrane.parser.tools.URLEncoder;
 public class CochraneTopicIterator {
 	public ArrayList<String> topics = new ArrayList<String>();
 	public ArrayList<CochraneArticleIterator> topicThreads = new ArrayList<CochraneArticleIterator>();
-
+	private final int MAX_THREADS = 4;
 	public CochraneTopicIterator() {
 		try {
 			Document doc = Jsoup
@@ -67,11 +66,22 @@ public class CochraneTopicIterator {
 
 	public void parseTopics(String outputDir) {
 		Iterator<String> i = topics.iterator();
+		int liveThreads = 0;
 		while (i.hasNext()) {
-			String topic = i.next();
-			CochraneArticleIterator e = new CochraneArticleIterator(outputDir + "\\" + topic, URLEncoder.encode(topic));
-			topicThreads.add(e);
-			e.start();
+			if(liveThreads <= MAX_THREADS){
+				String topic = i.next();
+				CochraneArticleIterator e = new CochraneArticleIterator(outputDir + "/" + topic, URLEncoder.encode(topic));
+				topicThreads.add(e);
+				e.start();
+				liveThreads++;
+			} else {
+				int threadcount = topicThreads.size();
+				for(CochraneArticleIterator e : topicThreads){
+					if(e.done)
+						threadcount--;
+				}
+				liveThreads=threadcount;
+			}
 		}
 		// Checking if threads are done:
 		Iterator<CochraneArticleIterator> caii;
@@ -90,17 +100,5 @@ public class CochraneTopicIterator {
 				}
 		}
 		System.out.println("DONE WITH ALL TOPIC(s)");
-	}
-
-	public void parseTopics(String outputDir, int[] indexes) {
-		Iterator<String> i = topics.iterator();
-		int x = 0;
-		while (i.hasNext()) {
-			x++;
-			if (Arrays.asList(indexes).contains(x)) {
-				String topic = i.next();
-				new CochraneArticleIterator(outputDir + "\\" + topic, URLEncoder.encode(topic)).start();
-			}
-		}
 	}
 }
