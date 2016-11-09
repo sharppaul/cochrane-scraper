@@ -3,8 +3,12 @@ package pubmed.author.tools;
 import java.io.*;
 import java.net.*;
 
+import org.apache.log4j.Logger;
+
 public class Getter {
-	public static String getHTML(String urlToRead) throws Exception {
+	final static Logger logger = Logger.getLogger(Getter.class);
+
+	public static String get(String urlToRead) throws Exception {
 		StringBuilder result = new StringBuilder();
 		URL url = new URL(urlToRead);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -24,13 +28,19 @@ public class Getter {
 				rd.close();
 				hasConnection = true;
 			} catch (SocketException e) {
-
+				logger.error(e.getMessage(), e);
 			} catch (FileNotFoundException e) {
 				attempts++;
 				Thread.sleep(50);
+				if(attempts > 3){
+					logger.error(e.getMessage(), e);
+				}
 			} catch (Exception e) {
 				attempts++;
 				Thread.sleep(50);
+				if(attempts > 3){
+					logger.error(e.getMessage(), e);
+				}
 			}
 		}
 

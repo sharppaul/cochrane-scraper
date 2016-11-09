@@ -1,5 +1,6 @@
 package pubmed.author;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,7 +12,7 @@ import pubmed.author.tools.Getter;
 import pubmed.author.tools.Poster;
 import pubmed.author.tools.URLEncoder;
 
-public class Authors extends Thread {
+public class AuthorRetriever extends Thread {
 	private String pubmedid;
 	public boolean isDone = false;
 	private String first;
@@ -21,8 +22,10 @@ public class Authors extends Thread {
 	private String probability1 = "0.00";
 	private String probability2 = "0.00";
 	private SQLConnection sql;
+	final static Logger logger = Logger.getLogger(AuthorRetriever.class);
+	
 
-	public Authors(String pubmedid, SQLConnection con) {
+	public AuthorRetriever(String pubmedid, SQLConnection con) {
 		this.pubmedid = pubmedid;
 		this.sql = con;
 	}
@@ -31,30 +34,33 @@ public class Authors extends Thread {
 		try {
 			if (getNames()) {
 				if (getFirstName("first")) {
-					if (authorInDatabase("first") || getGender("first")) {
-						// got gender.
+					if (authorInDatabase("first")) {
+						logger.info("Gender for "+ this.first + " ("+this.pubmedid+") found in database.");
 					} else {
-						System.err.println("FAIL:" + pubmedid + ": Retreiving gender for '" + first + "' failed.");
+						if(!getGender("first"))
+							logger.error("FAIL:" + pubmedid + ": Retreiving gender for '" + first + "' failed.");
 					}
 				} else {
-					System.err.println("FAIL:" + pubmedid + ": Retreiving firstname for '" + first + "' failed.");
+					logger.error("FAIL:" + pubmedid + ": Retreiving firstname for '" + first + "' failed.");
 				}
 				if (getFirstName("last")) {
-					if (authorInDatabase("last") || getGender("last")) {
-						// got gender.
+					if (authorInDatabase("last")) {
+						logger.info("Gender for "+ this.last + " ("+this.pubmedid+") found in database.");
 					} else {
-						System.err.println("FAIL:" + pubmedid + ": Retreiving gender for '" + last + "' failed.");
+						if(!getGender("last"))
+							logger.error("FAIL:" + pubmedid + ": Retreiving gender for '" + last + "' failed.");
 					}
 				} else {
-					System.err.println("FAIL:" + pubmedid + ": Retreiving firstname for '" + last + "' failed.");
+					logger.error("FAIL:" + pubmedid + ": Retreiving firstname for '" + last + "' failed.");
 				}
 			}
+			
 
 			if (!sql.insertAuthors(this.pubmedid, this.first, this.last, this.gender1, this.gender2, this.probability1,
 					this.probability2)) {
-				System.err.println("FAIL:" + pubmedid + ": Insert into database failed for: " + first + ", " + last);
+				logger.error("FAIL:" + pubmedid + ": Insert into database failed for: " + first + ", " + last);
 			} else {
-				System.out.println(this.toString());
+				logger.info("\n"+this.toString());
 			}
 			/*
 			 * if (!getNames()) throw new Exception(
@@ -71,7 +77,7 @@ public class Authors extends Thread {
 
 			this.isDone = true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		} finally {
 			this.isDone = true;
 		}
@@ -86,13 +92,13 @@ public class Authors extends Thread {
 	}
 
 	private boolean authorInDatabase(String which) {
-		String output;
+		String output = null;
 		if (which.equals("first"))
 			output = sql.checkForAuthor(this.first);
 		else
 			output = sql.checkForAuthor(this.last);
 
-		if (output != null && !output.isEmpty() && !output.equals("null#1.00")) {
+		if (output != null && !output.isEmpty() && !output.contains("null") &&!output.equals("null#1.00")) {
 			String[] out = output.split("#");
 			if (which.equals("first")) {
 				this.gender1 = out[0];
@@ -108,25 +114,21 @@ public class Authors extends Thread {
 	}
 
 	private boolean getNames() {
-		String url = "https://www.ncbi.nlm.nih.gov/pubmed/?term=" + pubmedid + "[uid]";
+		String url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=" + pubmedid;
 		Document doc = null;
 		try {
-			doc = Jsoup.parse(Getter.getHTML(url));
-			Elements authors = doc.getElementsByClass("auths");
-			this.first = authors.first().getElementsByTag("a").first().html();
-			this.last = authors.first().getElementsByTag("a").last().html();
-			if (isGroup(this.last)) {
-				Elements a = authors.first().getElementsByTag("a");
-				this.last = a.get(a.size() - 2).html();
-			}
+			doc = Jsoup.parse(Getter.get(url));
+			Elements authors = doc.getElementsByAttributeValue("Name", "Author");
+			this.first = authors.first().html();
+			this.last = doc.getElementsByAttributeValue("Name", "LastAuthor").first().html();
 			return true;
 		} catch (Exception e) {
-			System.err.println(e.toString() + " URL: " + url);
+			logger.error(e.getMessage() + " URL: " + url, e);
 		}
 		return false;
 	}
 
-	private boolean getFirstName(String who) throws InterruptedException {
+	private boolean getFirstName(String who){
 		int attempts = 0;
 		while (attempts <= 3) {
 			try {
@@ -169,7 +171,11 @@ public class Authors extends Thread {
 				return true;
 			} catch (Exception e) {
 				attempts++;
-				Thread.sleep(20);
+				try{
+					Thread.sleep(100);
+				} catch(InterruptedException ex){
+					//...
+				}
 			}
 		}
 		return false;
@@ -197,14 +203,14 @@ public class Authors extends Thread {
 
 			if (goodToGo) {
 				JSONObject result = new JSONObject(
-						Getter.getHTML("https://api.genderize.io/?name=" + URLEncoder.encode(firstname)));
+						Getter.get("https://api.genderize.io/?name=" + URLEncoder.encode(firstname)));
 				if (!result.get("gender").equals(null)) {
 					if (who.equals("first")) {
 						this.gender1 = result.getString("gender");
-						this.probability1 = result.getString("probability");
+						this.probability1 = "" + result.get("probability");
 					} else {
 						this.gender2 = result.getString("gender");
-						this.probability2 = result.getString("probability");
+						this.probability2 = "" + result.get("probability");
 					}
 				} else {
 					if (who.equals("first")) {
@@ -218,7 +224,7 @@ public class Authors extends Thread {
 		} catch (
 
 		Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 		return false;
 	}
@@ -256,8 +262,8 @@ public class Authors extends Thread {
 	}
 
 	public String toString() {
-		return "================ " + this.pubmedid + " ================\n#FIRST:\nAuthor:\t\t" + this.first
-				+ "\nGender:\t\t" + this.gender1 + "\nProbability:\t" + this.probability1 + "\n#LAST:\nAuthor:\t\t"
+		return "\tAuthors for " + this.pubmedid + ":\n\tFirst:\nAuthor:\t\t" + this.first
+				+ "\nGender:\t\t" + this.gender1 + "\nProbability:\t" + this.probability1 + "\n\tLast:\nAuthor:\t\t"
 				+ this.last + "\nGender:\t\t" + this.gender2 + "\nProbability:\t" + this.probability2;
 	}
 }

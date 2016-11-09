@@ -13,11 +13,13 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.log4j.Logger;
 
 public class Poster {
 	private HttpClient httpclient;
 	private HttpPost httppost;
 	List<NameValuePair> params = new ArrayList<NameValuePair>();
+	final static Logger logger = Logger.getLogger(Poster.class);
 
 	public Poster(String url) {
 		httpclient = HttpClients.createDefault();
@@ -40,13 +42,14 @@ public class Poster {
 			}
 			return Tools.convertStreamToString(instream);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
+		
 
 		try {
 			instream.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 		return "";
 	}

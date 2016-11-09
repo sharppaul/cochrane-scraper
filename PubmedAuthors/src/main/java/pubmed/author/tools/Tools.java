@@ -4,13 +4,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class Tools {
+	final static Logger logger = Logger.getLogger(Tools.class);
+
 	public static String toSHA1(byte[] convertme) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-1");
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 		return Tools.byteArrayToHexString(md.digest(convertme));
 	}

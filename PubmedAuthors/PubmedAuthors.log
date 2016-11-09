@@ -1,0 +1,104 @@
+2016-11-09 12:56:20 INFO  AuthorRetriever:63 - 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	1
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 12:57:30 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	1
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 12:57:52 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	1
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 12:58:48 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	1
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:16:43 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:16:50 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	0.96
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:16:50 INFO  Main:45] MAIN THREAD: DONE
+[2016-11-09 13:22:30 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:22:36 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	0.96
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:22:36 INFO  Main:45] MAIN THREAD: DONE
+[2016-11-09 13:22:40 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:22:45 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	0.96
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:22:45 INFO  Main:45] MAIN THREAD: DONE
+[2016-11-09 13:24:54 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:24:58 INFO  AuthorRetriever:38] Gender for SINKE, MICHEL R T (27132542) found in database.
+[2016-11-09 13:25:00 INFO  AuthorRetriever:48] Gender for OTTE, WILLEM M (27132542) found in database.
+[2016-11-09 13:25:00 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+#FIRST:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	0.96
+#LAST:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:25:00 INFO  Main:45] MAIN THREAD: DONE
+[2016-11-09 13:26:12 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:26:15 INFO  AuthorRetriever:38] Gender for SINKE, MICHEL R T (27132542) found in database.
+[2016-11-09 13:26:17 INFO  AuthorRetriever:48] Gender for OTTE, WILLEM M (27132542) found in database.
+[2016-11-09 13:26:17 INFO  AuthorRetriever:63] 
+	Authors for 27132542:
+	First:
+Author:		SINKE, MICHEL R T
+Gender:		male
+Probability:	0.96
+	Last:
+Author:		OTTE, WILLEM M
+Gender:		male
+Probability:	1
+[2016-11-09 13:26:17 INFO  Main:45] MAIN THREAD: DONE

@@ -8,17 +8,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 public class SQLConnection {
 
 	private String url = null;
 	private String user = null;
 	private String password = null;
 	private Connection con = null;
+	final static Logger logger = Logger.getLogger(SQLConnection.class);
 
 	public static SQLConnection local = new SQLConnection("localhost", "3306", "paul", "paul", "[paul3514]");
 
 	public SQLConnection(String IP, String port, String dbname, String username, String password) {
-		this.url = "jdbc:mysql://" + IP + ":" + port + "/" + dbname;
+		this.url = "jdbc:mysql://" + IP + ":" + port + "/" + dbname + "?autoReconnect=true&useSSL=false";
 		this.user = username;
 		this.password = password;
 	}
@@ -33,7 +36,7 @@ public class SQLConnection {
 			while(rs.next())
 				list.add(rs.getString(1));
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error(ex.getMessage(), ex);
 		} finally {
 			try {
 
@@ -45,7 +48,7 @@ public class SQLConnection {
 					st.close();
 				}
 			} catch (SQLException ex) {
-				ex.printStackTrace();
+				logger.error(ex.getMessage(), ex);
 			}
 		}
 		return list;
@@ -74,7 +77,7 @@ public class SQLConnection {
 			}
 			return null;
 		} catch (SQLException ex) {
-			System.err.println(ex.getLocalizedMessage() + "\n" + st.toString());
+			logger.error(ex.getLocalizedMessage() + "\n" + st.toString());
 		} finally {
 			try {
 				if (rs != null) {
@@ -84,7 +87,7 @@ public class SQLConnection {
 					st.close();
 				}
 			} catch (SQLException ex) {
-				ex.printStackTrace();
+				logger.error(ex.getMessage(), ex);
 			}
 		}
 		return null;
@@ -106,7 +109,7 @@ public class SQLConnection {
 			st.executeUpdate();
 			return true;
 		} catch (SQLException ex) {
-			System.err.println(ex.getLocalizedMessage() + "\n" + st.toString());
+			logger.error(ex.getMessage() + "\n" + st.toString(), ex);
 		} finally {
 			try {
 				
@@ -114,7 +117,7 @@ public class SQLConnection {
 					st.close();
 				}
 			} catch (SQLException ex) {
-				ex.printStackTrace();
+				logger.error(ex.getMessage(), ex);
 			}
 		}
 		return false;
@@ -127,9 +130,9 @@ public class SQLConnection {
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT VERSION()");
 			if (rs.next())
-				System.out.println(rs.getString(1));
+				logger.info(rs.getString(1));
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error(ex.getMessage(), ex);
 		} finally {
 			try {
 
@@ -141,7 +144,7 @@ public class SQLConnection {
 					st.close();
 				}
 			} catch (SQLException ex) {
-				ex.printStackTrace();
+				logger.error(ex.getMessage(), ex);
 			}
 		}
 	}
@@ -151,8 +154,7 @@ public class SQLConnection {
 			con = DriverManager.getConnection(url, user, password);
 			return true;
 		} catch (SQLException e) {
-			System.err.println(url + ", " + user + ":" + password);
-			e.printStackTrace();
+			logger.error(url + ", " + user + ":" + password, e);
 			return false;
 		}
 	}
@@ -162,7 +164,7 @@ public class SQLConnection {
 			con.close();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 			return false;
 		}
 	}
