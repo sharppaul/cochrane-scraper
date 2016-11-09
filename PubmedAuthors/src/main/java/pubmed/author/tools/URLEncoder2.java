@@ -1,6 +1,6 @@
 package pubmed.author.tools;
 
-public class URLEncoder {
+public class URLEncoder2 {
 	public static String encode(String input) {
 		StringBuilder resultStr = new StringBuilder();
 		for (char ch : input.toCharArray()) {

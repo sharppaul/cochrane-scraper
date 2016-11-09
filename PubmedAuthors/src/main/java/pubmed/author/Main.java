@@ -13,7 +13,7 @@ public class Main {
 	private ArrayList<String> list;
 	private Iterator<String> it;
 	private SQLConnection con;
-	private final boolean TESTING = true;
+	private final boolean TESTING = false;
 	final static Logger logger = Logger.getLogger(Main.class);
 	
 	public static void main(String[] args) {
@@ -62,7 +62,6 @@ public class Main {
 		}
 	}
 
-	@SuppressWarnings("unused")
 	public boolean isDone() {
 		if (it.hasNext() && !this.TESTING)
 			return false;

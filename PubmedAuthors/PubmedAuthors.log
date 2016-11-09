@@ -102,3 +102,2098 @@ Author:		OTTE, WILLEM M
 Gender:		male
 Probability:	1
 [2016-11-09 13:26:17 INFO  Main:45] MAIN THREAD: DONE
+[2016-11-09 13:49:19 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:49:24 ERROR Getter:42] Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+java.io.IOException: Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1926)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1921)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(HttpURLConnection.java:1920)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1490)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at pubmed.author.tools.Getter.get(Getter.java:24)
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:209)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:43)
+Caused by: java.io.IOException: Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1876)
+	... 5 more
+[2016-11-09 13:49:24 ERROR AuthorRetriever:230] A JSONObject text must begin with '{' at 1 [character 2 line 1]
+org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:208)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:43)
+[2016-11-09 13:49:24 ERROR AuthorRetriever:44] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 13:49:26 INFO  AuthorRetriever:66] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 13:49:28 ERROR Getter:42] Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+java.io.IOException: Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1926)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1921)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(HttpURLConnection.java:1920)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1490)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at pubmed.author.tools.Getter.get(Getter.java:24)
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:209)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:53)
+Caused by: java.io.IOException: Server returned HTTP response code: 422 for URL: https://api.genderize.io/?name=
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1876)
+	... 5 more
+[2016-11-09 13:49:28 ERROR AuthorRetriever:230] A JSONObject text must begin with '{' at 1 [character 2 line 1]
+org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:451)
+	at org.json.JSONObject.<init>(JSONObject.java:195)
+	at org.json.JSONObject.<init>(JSONObject.java:319)
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:208)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:53)
+[2016-11-09 13:49:28 ERROR AuthorRetriever:54] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 13:49:28 INFO  AuthorRetriever:66] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 13:55:43 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 13:55:47 INFO  AuthorRetriever:40] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 13:55:47 ERROR AuthorRetriever:43] FAIL:17255844: Retreiving gender for 'HAIDEN, NADJA' failed.
+[2016-11-09 13:55:47 ERROR AuthorRetriever:43] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 13:55:48 ERROR AuthorRetriever:43] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 13:55:49 INFO  AuthorRetriever:50] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 13:55:49 INFO  AuthorRetriever:65] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 13:55:49 ERROR AuthorRetriever:53] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 13:55:49 INFO  AuthorRetriever:65] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 13:55:51 ERROR AuthorRetriever:53] FAIL:17255844: Retreiving gender for 'POLLAK, ARNOLD' failed.
+[2016-11-09 13:55:51 INFO  AuthorRetriever:65] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		null
+Probability:	0.00
+[2016-11-09 13:55:52 ERROR AuthorRetriever:43] FAIL:11416876: Retreiving gender for 'BAHCECILER, NERIN N' failed.
+[2016-11-09 13:55:54 ERROR AuthorRetriever:53] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 13:55:54 INFO  AuthorRetriever:65] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		null
+Probability:	0.00
+[2016-11-09 13:55:56 ERROR AuthorRetriever:43] FAIL:11117271: Retreiving gender for 'CAFFARELLI, CARLO' failed.
+[2016-11-09 13:55:56 ERROR AuthorRetriever:53] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 13:55:56 INFO  AuthorRetriever:65] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 13:55:59 ERROR AuthorRetriever:53] FAIL:11117271: Retreiving gender for 'CAVAGNI, G' failed.
+[2016-11-09 13:55:59 INFO  AuthorRetriever:65] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, CARLO
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CAVAGNI, G
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:00:58 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:01:02 ERROR AuthorRetriever:42] FAIL:21455007: Retreiving gender for 'KHADR, SOPHIE N' failed.
+[2016-11-09 14:01:02 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:01:02 ERROR AuthorRetriever:42] FAIL:17255844: Retreiving gender for 'HAIDEN, NADJA' failed.
+[2016-11-09 14:01:02 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:01:04 ERROR AuthorRetriever:52] FAIL:21455007: Retreiving gender for 'ABARA, ROSEMARY C' failed.
+[2016-11-09 14:01:04 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:01:04 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:01:04 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:01:04 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, ARNOLD' failed.
+[2016-11-09 14:01:04 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:36 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:02:40 ERROR AuthorRetriever:42] FAIL:21455007: Retreiving gender for 'KHADR, SOPHIE N' failed.
+[2016-11-09 14:02:40 ERROR AuthorRetriever:42] FAIL:17255844: Retreiving gender for 'HAIDEN, NADJA' failed.
+[2016-11-09 14:02:40 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:02:40 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:02:42 ERROR AuthorRetriever:52] FAIL:21455007: Retreiving gender for 'ABARA, ROSEMARY C' failed.
+[2016-11-09 14:02:42 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:42 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:02:42 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:42 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, ARNOLD' failed.
+[2016-11-09 14:02:42 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:43 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:02:43 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:44 ERROR AuthorRetriever:42] FAIL:11416876: Retreiving gender for 'BAHCECILER, NERIN N' failed.
+[2016-11-09 14:02:45 ERROR AuthorRetriever:42] FAIL:11117271: Retreiving gender for 'CAFFARELLI, CARLO' failed.
+[2016-11-09 14:02:46 ERROR AuthorRetriever:52] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 14:02:46 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:02:46 ERROR AuthorRetriever:42] FAIL:17153880: Retreiving gender for 'CALDERON, MOISES A' failed.
+[2016-11-09 14:04:51 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:04:55 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:04:55 ERROR AuthorRetriever:42] FAIL:17255844: Retreiving gender for 'HAIDEN, NADJA' failed.
+[2016-11-09 14:04:55 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:04:55 ERROR AuthorRetriever:42] FAIL:21455007: Retreiving gender for 'KHADR, SOPHIE N' failed.
+[2016-11-09 14:04:55 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:04:55 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:04:56 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:04:56 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:04:57 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:04:57 ERROR AuthorRetriever:52] FAIL:21455007: Retreiving gender for 'ABARA, ROSEMARY C' failed.
+[2016-11-09 14:04:57 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:04:57 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:04:57 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:04:57 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:04:58 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:04:58 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, ARNOLD' failed.
+[2016-11-09 14:04:58 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:04:58 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:04:58 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:04:58 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:04:59 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:04:59 ERROR AuthorRetriever:42] FAIL:11416876: Retreiving gender for 'BAHCECILER, NERIN N' failed.
+[2016-11-09 14:05:57 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:06:00 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:06:00 ERROR AuthorRetriever:42] FAIL:21455007: Retreiving gender for 'KHADR, SOPHIE N' failed.
+[2016-11-09 14:06:00 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:06:00 ERROR AuthorRetriever:42] FAIL:17255844: Retreiving gender for 'HAIDEN, NADJA' failed.
+[2016-11-09 14:06:00 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:06:00 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:06:01 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:189)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:41)
+[2016-11-09 14:06:01 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:06:02 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:06:02 ERROR AuthorRetriever:52] FAIL:21455007: Retreiving gender for 'ABARA, ROSEMARY C' failed.
+[2016-11-09 14:06:02 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:02 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:06:02 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:06:02 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:03 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:06:03 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, ARNOLD' failed.
+[2016-11-09 14:06:03 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:03 ERROR AuthorRetriever:219] 
+java.lang.NullPointerException
+	at pubmed.author.AuthorRetriever.getGender(AuthorRetriever.java:192)
+	at pubmed.author.AuthorRetriever.run(AuthorRetriever.java:51)
+[2016-11-09 14:06:03 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:06:03 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:34 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:06:38 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:06:39 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:06:40 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:06:40 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:40 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:06:41 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:06:41 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:06:41 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:11:21 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:11:25 INFO  AuthorRetriever:39] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 14:11:25 INFO  AuthorRetriever:39] Gender for HAIDEN, NADJA (17255844) found in database.
+[2016-11-09 14:11:25 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:11:25 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:11:27 INFO  AuthorRetriever:49] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 14:11:27 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:11:27 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:11:27 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:11:28 INFO  AuthorRetriever:49] Gender for POLLAK, ARNOLD (17255844) found in database.
+[2016-11-09 14:11:28 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:11:28 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:11:28 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:11:31 ERROR AuthorRetriever:52] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 14:11:31 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:11:32 ERROR AuthorRetriever:52] FAIL:11117271: Retreiving gender for 'CAVAGNI, G' failed.
+[2016-11-09 14:11:32 INFO  AuthorRetriever:63] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, CARLO
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		CAVAGNI, G
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:11:34 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:11:34 INFO  AuthorRetriever:63] 
+	Authors for 17153880:
+	First:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+	Last:
+Author:		ESSENDROP, MORTEN
+Gender:		male
+Probability:	1
+[2016-11-09 14:11:36 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:11:36 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:11:37 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:11:39 ERROR AuthorRetriever:42] FAIL:12464165: Retreiving gender for 'CRIADO MOLINA, A' failed.
+[2016-11-09 14:11:39 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:11:39 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:11:40 INFO  AuthorRetriever:63] 
+	Authors for 6391735:
+	First:
+Author:		COOPER, PHILIP J
+Gender:		male
+Probability:	1
+	Last:
+Author:		WARNER, JOHN O
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:11:42 INFO  AuthorRetriever:63] 
+	Authors for 10321561:
+	First:
+Author:		BOUSQUET, JEAN
+Gender:		female
+Probability:	0.53
+	Last:
+Author:		ANDRE, CATHERINE
+Gender:		female
+Probability:	1
+[2016-11-09 14:11:42 ERROR AuthorRetriever:52] FAIL:12464165: Retreiving gender for 'SANCHEZ GUIJO, P' failed.
+[2016-11-09 14:11:42 INFO  AuthorRetriever:63] 
+	Authors for 12464165:
+	First:
+Author:		CRIADO MOLINA, A
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		SANCHEZ GUIJO, P
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:19:05 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:19:09 INFO  AuthorRetriever:39] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 14:19:09 ERROR AuthorRetriever:45] FAIL:17573730: Retreiving firstname for 'Alvarez-Cuesta E' failed.
+[2016-11-09 14:19:09 INFO  AuthorRetriever:39] Gender for HAIDEN, NADJA (17255844) found in database.
+[2016-11-09 14:19:09 ERROR AuthorRetriever:45] FAIL:24953576: Retreiving firstname for 'Shinde S' failed.
+[2016-11-09 14:19:11 INFO  AuthorRetriever:49] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 14:19:11 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:19:11 ERROR AuthorRetriever:55] FAIL:17573730: Retreiving firstname for 'Casanovas M' failed.
+[2016-11-09 14:19:11 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		Alvarez-Cuesta E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		Casanovas M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:19:12 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, A' failed.
+[2016-11-09 14:19:12 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, A
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:19:12 ERROR AuthorRetriever:55] FAIL:24953576: Retreiving firstname for 'Ahmed J' failed.
+[2016-11-09 14:19:12 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		Shinde S
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		Ahmed J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:19:13 INFO  AuthorRetriever:39] Gender for BAHCECILER, NERIN N (11416876) found in database.
+[2016-11-09 14:19:14 ERROR AuthorRetriever:42] FAIL:11117271: Retreiving gender for 'CAFFARELLI, C' failed.
+[2016-11-09 14:19:15 ERROR AuthorRetriever:55] FAIL:11416876: Retreiving firstname for 'Başaran MM' failed.
+[2016-11-09 14:19:15 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		Başaran MM
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:19:15 ERROR AuthorRetriever:42] FAIL:10321561: Retreiving gender for 'BOUSQUET, J' failed.
+[2016-11-09 14:19:16 ERROR AuthorRetriever:42] FAIL:17153880: Retreiving gender for 'CALDERON, M' failed.
+[2016-11-09 14:19:16 ERROR AuthorRetriever:55] FAIL:11117271: Retreiving firstname for 'Cavagni G' failed.
+[2016-11-09 14:19:16 INFO  AuthorRetriever:63] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, C
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		Cavagni G
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:20:31 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:20:35 INFO  AuthorRetriever:39] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 14:20:35 ERROR AuthorRetriever:45] FAIL:17573730: Retreiving firstname for 'Alvarez-Cuesta E' failed.
+[2016-11-09 14:20:35 INFO  AuthorRetriever:39] Gender for HAIDEN, NADJA (17255844) found in database.
+[2016-11-09 14:20:36 ERROR AuthorRetriever:45] FAIL:24953576: Retreiving firstname for 'Shinde S' failed.
+[2016-11-09 14:20:37 INFO  AuthorRetriever:49] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 14:20:37 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:20:37 ERROR AuthorRetriever:55] FAIL:17573730: Retreiving firstname for 'Casanovas M' failed.
+[2016-11-09 14:20:37 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		Alvarez-Cuesta E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		Casanovas M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:20:38 ERROR AuthorRetriever:52] FAIL:17255844: Retreiving gender for 'POLLAK, A' failed.
+[2016-11-09 14:20:38 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, A
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:20:38 ERROR AuthorRetriever:55] FAIL:24953576: Retreiving firstname for 'Ahmed J' failed.
+[2016-11-09 14:20:38 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		Shinde S
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		Ahmed J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:24:24 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:24:28 INFO  AuthorRetriever:39] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 14:24:28 INFO  AuthorRetriever:39] Gender for HAIDEN, NADJA (17255844) found in database.
+[2016-11-09 14:24:28 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:24:28 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:24:30 INFO  AuthorRetriever:49] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 14:24:30 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:24:30 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:24:30 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:24:31 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:24:31 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:24:31 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:24:32 INFO  AuthorRetriever:39] Gender for BAHCECILER, NERIN N (11416876) found in database.
+[2016-11-09 14:24:34 ERROR AuthorRetriever:52] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 14:24:34 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		null
+Probability:	0.00
+[2016-11-09 14:24:34 INFO  AuthorRetriever:39] Gender for CALDERON, MOISES A (17153880) found in database.
+[2016-11-09 14:24:34 INFO  AuthorRetriever:39] Gender for BOUSQUET, JEAN (10321561) found in database.
+[2016-11-09 14:26:06 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:26:21 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:26:25 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:26:26 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:26:27 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:26:27 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:28 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:26:28 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:26:28 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:26:28 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:31 ERROR AuthorRetriever:52] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 14:26:31 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:32 ERROR AuthorRetriever:52] FAIL:11117271: Retreiving gender for 'CAVAGNI, G' failed.
+[2016-11-09 14:26:32 INFO  AuthorRetriever:63] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, CARLO
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		CAVAGNI, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:34 INFO  AuthorRetriever:63] 
+	Authors for 17153880:
+	First:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+	Last:
+Author:		ESSENDROP, MORTEN
+Gender:		male
+Probability:	1
+[2016-11-09 14:26:35 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:26:35 INFO  AuthorRetriever:63] 
+	Authors for 10321561:
+	First:
+Author:		BOUSQUET, JEAN
+Gender:		female
+Probability:	0.53
+	Last:
+Author:		ANDRE, CATHERINE
+Gender:		female
+Probability:	1
+[2016-11-09 14:26:36 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:26:37 INFO  AuthorRetriever:63] 
+	Authors for 6391735:
+	First:
+Author:		COOPER, PHILIP J
+Gender:		male
+Probability:	1
+	Last:
+Author:		WARNER, JOHN O
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:26:37 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:26:37 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:26:38 ERROR AuthorRetriever:42] FAIL:12464165: Retreiving gender for 'CRIADO MOLINA, A' failed.
+[2016-11-09 14:26:38 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:26:38 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:26:39 ERROR AuthorRetriever:52] FAIL:12464165: Retreiving gender for 'SANCHEZ GUIJO, P' failed.
+[2016-11-09 14:26:39 INFO  AuthorRetriever:63] 
+	Authors for 12464165:
+	First:
+Author:		CRIADO MOLINA, A
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		SANCHEZ GUIJO, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:42 ERROR AuthorRetriever:42] FAIL:16568708: Retreiving gender for 'GOMEZ VERA, J' failed.
+[2016-11-09 14:26:43 INFO  AuthorRetriever:63] 
+	Authors for 20100188:
+	First:
+Author:		EIFAN, AARIF O
+Gender:		male
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:26:44 ERROR AuthorRetriever:52] FAIL:16568708: Retreiving gender for 'GOMEZ VERA, J' failed.
+[2016-11-09 14:26:44 INFO  AuthorRetriever:63] 
+	Authors for 16568708:
+	First:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:44 ERROR AuthorRetriever:52] FAIL:19210358: Retreiving gender for 'CHANEZ, P' failed.
+[2016-11-09 14:26:44 INFO  AuthorRetriever:63] 
+	Authors for 19210358:
+	First:
+Author:		TILLIE-LEBLOND, ISABELLE
+Gender:		female
+Probability:	1
+	Last:
+Author:		CHANEZ, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:47 INFO  AuthorRetriever:63] 
+	Authors for 16409194:
+	First:
+Author:		DAHL, RONALD E
+Gender:		male
+Probability:	1
+	Last:
+Author:		RAK, SABINA
+Gender:		female
+Probability:	0.99
+[2016-11-09 14:26:50 ERROR AuthorRetriever:52] FAIL:12787302: Retreiving gender for 'FREDIANI, T' failed.
+[2016-11-09 14:26:50 INFO  AuthorRetriever:63] 
+	Authors for 12787302:
+	First:
+Author:		IPPOLITI, FLORA
+Gender:		female
+Probability:	1
+	Last:
+Author:		FREDIANI, T
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:26:52 INFO  AuthorRetriever:49] Gender for BARLAN, ISIL B (21641635) found in database.
+[2016-11-09 14:26:52 INFO  AuthorRetriever:63] 
+	Authors for 21641635:
+	First:
+Author:		KELES, SUNDUZ
+Gender:		female
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:26:53 INFO  AuthorRetriever:63] 
+	Authors for 17441414:
+	First:
+Author:		LA GRUTTA, STEFANIA
+Gender:		female
+Probability:	0.99
+	Last:
+Author:		LA ROSA, MARIO
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:26:58 ERROR AuthorRetriever:42] FAIL:16176400: Retreiving gender for 'MARCUCCI, F' failed.
+[2016-11-09 14:27:00 ERROR AuthorRetriever:52] FAIL:2297142: Retreiving gender for 'DUAN, S Q' failed.
+[2016-11-09 14:27:00 INFO  AuthorRetriever:63] 
+	Authors for 2297142:
+	First:
+Author:		LENG, XI-SHENG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		DUAN, S Q
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:02 INFO  AuthorRetriever:63] 
+	Authors for 16176400:
+	First:
+Author:		MARCUCCI, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BURASTERO, SAMUELE E
+Gender:		male
+Probability:	1
+[2016-11-09 14:27:02 INFO  AuthorRetriever:39] Gender for MARCUCCI, F (12823127) found in database.
+[2016-11-09 14:27:03 INFO  AuthorRetriever:63] 
+	Authors for 16925685:
+	First:
+Author:		LUE, KO-HUANG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CHOU, MING-CHIH
+Gender:		male
+Probability:	1
+[2016-11-09 14:27:05 ERROR AuthorRetriever:42] FAIL:15940132: Retreiving gender for 'MAROGNA, M' failed.
+[2016-11-09 14:27:05 INFO  AuthorRetriever:63] 
+	Authors for 11872551:
+	First:
+Author:		LEWITH, GEORGE T
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		HOLGATE, STEPHEN T
+Gender:		male
+Probability:	1
+[2016-11-09 14:27:05 INFO  AuthorRetriever:63] 
+	Authors for 12823127:
+	First:
+Author:		MARCUCCI, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PECORA, SILVIA
+Gender:		female
+Probability:	1
+[2016-11-09 14:27:08 ERROR AuthorRetriever:42] FAIL:25135744: Retreiving gender for 'DE BLAY, F' failed.
+[2016-11-09 14:27:11 INFO  AuthorRetriever:63] 
+	Authors for 15940132:
+	First:
+Author:		MAROGNA, M
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PASSALACQUA, GIOVANNI
+Gender:		male
+Probability:	1
+[2016-11-09 14:27:15 INFO  AuthorRetriever:63] 
+	Authors for 24797423:
+	First:
+Author:		MOSBECH, HOLGER
+Gender:		male
+Probability:	1
+	Last:
+Author:		CANONICA, GIORGIO WALTER
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:16 INFO  AuthorRetriever:63] 
+	Authors for 25135744:
+	First:
+Author:		DE BLAY, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CANONICA, GIORGIO WALTER
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:18 ERROR AuthorRetriever:52] FAIL:21121080: Retreiving gender for 'NIGGEMANN, B' failed.
+[2016-11-09 14:27:18 INFO  AuthorRetriever:63] 
+	Authors for 21121080:
+	First:
+Author:		MOSGES, RALPH
+Gender:		male
+Probability:	1
+	Last:
+Author:		NIGGEMANN, B
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:18 ERROR AuthorRetriever:52] FAIL:10353581: Retreiving gender for 'GURBUZ, L' failed.
+[2016-11-09 14:27:18 INFO  AuthorRetriever:63] 
+	Authors for 10353581:
+	First:
+Author:		MUNGAN, DILSAD
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		GURBUZ, L
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:19 ERROR AuthorRetriever:42] FAIL:11003448: Retreiving gender for 'PAJNO, G B' failed.
+[2016-11-09 14:27:20 ERROR AuthorRetriever:42] FAIL:15230823: Retreiving gender for 'PAJNO, G B' failed.
+[2016-11-09 14:27:21 ERROR AuthorRetriever:42] FAIL:14656349: Retreiving gender for 'PAJNO, G B' failed.
+[2016-11-09 14:27:23 ERROR AuthorRetriever:52] FAIL:11003448: Retreiving gender for 'PARMIANI, S' failed.
+[2016-11-09 14:27:23 INFO  AuthorRetriever:63] 
+	Authors for 11003448:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PARMIANI, S
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:24 ERROR AuthorRetriever:52] FAIL:15230823: Retreiving gender for 'BARBERIO, G' failed.
+[2016-11-09 14:27:24 INFO  AuthorRetriever:63] 
+	Authors for 15230823:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BARBERIO, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:27:24 INFO  AuthorRetriever:49] Gender for BARBERIO, G (14656349) found in database.
+[2016-11-09 14:27:24 INFO  AuthorRetriever:63] 
+	Authors for 14656349:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BARBERIO, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:06 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:43:10 INFO  AuthorRetriever:39] Gender for KHADR, SOPHIE N (21455007) found in database.
+[2016-11-09 14:43:10 INFO  AuthorRetriever:39] Gender for HAIDEN, NADJA (17255844) found in database.
+[2016-11-09 14:43:10 INFO  AuthorRetriever:39] Gender for ALVAREZ-CUESTA, E (17573730) found in database.
+[2016-11-09 14:43:11 INFO  AuthorRetriever:39] Gender for SHINDE, S R (24953576) found in database.
+[2016-11-09 14:43:12 INFO  AuthorRetriever:49] Gender for ABARA, ROSEMARY C (21455007) found in database.
+[2016-11-09 14:43:12 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:43:12 INFO  AuthorRetriever:49] Gender for CASANOVAS, M (17573730) found in database.
+[2016-11-09 14:43:12 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:13 INFO  AuthorRetriever:49] Gender for POLLAK, ARNOLD (17255844) found in database.
+[2016-11-09 14:43:13 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:43:13 INFO  AuthorRetriever:49] Gender for AHMED, J (24953576) found in database.
+[2016-11-09 14:43:13 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:15 INFO  AuthorRetriever:39] Gender for BAHCECILER, NERIN N (11416876) found in database.
+[2016-11-09 14:43:15 INFO  AuthorRetriever:39] Gender for CAFFARELLI, CARLO (11117271) found in database.
+[2016-11-09 14:43:16 INFO  AuthorRetriever:49] Gender for BASARAN, M M (11416876) found in database.
+[2016-11-09 14:43:16 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:17 INFO  AuthorRetriever:39] Gender for BOUSQUET, JEAN (10321561) found in database.
+[2016-11-09 14:43:17 INFO  AuthorRetriever:39] Gender for CALDERON, MOISES A (17153880) found in database.
+[2016-11-09 14:43:17 INFO  AuthorRetriever:49] Gender for CAVAGNI, G (11117271) found in database.
+[2016-11-09 14:43:17 INFO  AuthorRetriever:63] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, CARLO
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		CAVAGNI, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:19 INFO  AuthorRetriever:49] Gender for ESSENDROP, MORTEN (17153880) found in database.
+[2016-11-09 14:43:19 INFO  AuthorRetriever:63] 
+	Authors for 17153880:
+	First:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+	Last:
+Author:		ESSENDROP, MORTEN
+Gender:		male
+Probability:	1
+[2016-11-09 14:43:19 INFO  AuthorRetriever:39] Gender for CORZO, J L (25011352) found in database.
+[2016-11-09 14:43:19 INFO  AuthorRetriever:39] Gender for COOPER, PHILIP J (6391735) found in database.
+[2016-11-09 14:43:19 INFO  AuthorRetriever:49] Gender for ANDRE, CATHERINE (10321561) found in database.
+[2016-11-09 14:43:19 INFO  AuthorRetriever:63] 
+	Authors for 10321561:
+	First:
+Author:		BOUSQUET, JEAN
+Gender:		female
+Probability:	0.53
+	Last:
+Author:		ANDRE, CATHERINE
+Gender:		female
+Probability:	1
+[2016-11-09 14:43:21 INFO  AuthorRetriever:39] Gender for CORZO, J L (25011352) found in database.
+[2016-11-09 14:43:21 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:43:21 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:43:21 INFO  AuthorRetriever:49] Gender for WARNER, JOHN O (6391735) found in database.
+[2016-11-09 14:43:21 INFO  AuthorRetriever:63] 
+	Authors for 6391735:
+	First:
+Author:		COOPER, PHILIP J
+Gender:		male
+Probability:	1
+	Last:
+Author:		WARNER, JOHN O
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:43:21 INFO  AuthorRetriever:39] Gender for CRIADO MOLINA, A (12464165) found in database.
+[2016-11-09 14:43:23 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:43:23 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:43:24 INFO  AuthorRetriever:49] Gender for SANCHEZ GUIJO, P (12464165) found in database.
+[2016-11-09 14:43:24 INFO  AuthorRetriever:63] 
+	Authors for 12464165:
+	First:
+Author:		CRIADO MOLINA, A
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		SANCHEZ GUIJO, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:24 INFO  AuthorRetriever:39] Gender for TILLIE-LEBLOND, ISABELLE (19210358) found in database.
+[2016-11-09 14:43:25 INFO  AuthorRetriever:39] Gender for DAHL, RONALD E (16409194) found in database.
+[2016-11-09 14:43:26 INFO  AuthorRetriever:39] Gender for EIFAN, AARIF O (20100188) found in database.
+[2016-11-09 14:43:26 INFO  AuthorRetriever:39] Gender for GOMEZ VERA, J (16568708) found in database.
+[2016-11-09 14:43:26 INFO  AuthorRetriever:49] Gender for CHANEZ, P (19210358) found in database.
+[2016-11-09 14:43:26 INFO  AuthorRetriever:63] 
+	Authors for 19210358:
+	First:
+Author:		TILLIE-LEBLOND, ISABELLE
+Gender:		female
+Probability:	1
+	Last:
+Author:		CHANEZ, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:27 INFO  AuthorRetriever:49] Gender for RAK, SABINA (16409194) found in database.
+[2016-11-09 14:43:27 INFO  AuthorRetriever:63] 
+	Authors for 16409194:
+	First:
+Author:		DAHL, RONALD E
+Gender:		male
+Probability:	1
+	Last:
+Author:		RAK, SABINA
+Gender:		female
+Probability:	0.99
+[2016-11-09 14:43:28 INFO  AuthorRetriever:49] Gender for GOMEZ VERA, J (16568708) found in database.
+[2016-11-09 14:43:28 INFO  AuthorRetriever:63] 
+	Authors for 16568708:
+	First:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:28 INFO  AuthorRetriever:49] Gender for BARLAN, ISIL B (20100188) found in database.
+[2016-11-09 14:43:28 INFO  AuthorRetriever:63] 
+	Authors for 20100188:
+	First:
+Author:		EIFAN, AARIF O
+Gender:		male
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:43:29 INFO  AuthorRetriever:39] Gender for IPPOLITI, FLORA (12787302) found in database.
+[2016-11-09 14:43:30 INFO  AuthorRetriever:39] Gender for KELES, SUNDUZ (21641635) found in database.
+[2016-11-09 14:43:30 INFO  AuthorRetriever:39] Gender for LA GRUTTA, STEFANIA (17441414) found in database.
+[2016-11-09 14:43:31 INFO  AuthorRetriever:49] Gender for FREDIANI, T (12787302) found in database.
+[2016-11-09 14:43:31 INFO  AuthorRetriever:63] 
+	Authors for 12787302:
+	First:
+Author:		IPPOLITI, FLORA
+Gender:		female
+Probability:	1
+	Last:
+Author:		FREDIANI, T
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:31 INFO  AuthorRetriever:39] Gender for LENG, XI-SHENG (2297142) found in database.
+[2016-11-09 14:43:32 INFO  AuthorRetriever:49] Gender for BARLAN, ISIL B (21641635) found in database.
+[2016-11-09 14:43:32 INFO  AuthorRetriever:63] 
+	Authors for 21641635:
+	First:
+Author:		KELES, SUNDUZ
+Gender:		female
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:43:32 INFO  AuthorRetriever:49] Gender for LA ROSA, MARIO (17441414) found in database.
+[2016-11-09 14:43:32 INFO  AuthorRetriever:63] 
+	Authors for 17441414:
+	First:
+Author:		LA GRUTTA, STEFANIA
+Gender:		female
+Probability:	0.99
+	Last:
+Author:		LA ROSA, MARIO
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:43:33 INFO  AuthorRetriever:49] Gender for DUAN, S Q (2297142) found in database.
+[2016-11-09 14:43:33 INFO  AuthorRetriever:63] 
+	Authors for 2297142:
+	First:
+Author:		LENG, XI-SHENG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		DUAN, S Q
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:43:33 INFO  AuthorRetriever:39] Gender for LEWITH, GEORGE T (11872551) found in database.
+[2016-11-09 14:43:34 INFO  AuthorRetriever:39] Gender for LUE, KO-HUANG (16925685) found in database.
+[2016-11-09 14:43:34 INFO  AuthorRetriever:39] Gender for MARCUCCI, F (16176400) found in database.
+[2016-11-09 14:44:20 INFO  Main:28] MAIN THREAD: START
+[2016-11-09 14:44:24 ERROR AuthorRetriever:42] FAIL:17573730: Retreiving gender for 'ALVAREZ-CUESTA, E' failed.
+[2016-11-09 14:44:24 ERROR AuthorRetriever:42] FAIL:24953576: Retreiving gender for 'SHINDE, S R' failed.
+[2016-11-09 14:44:26 ERROR AuthorRetriever:52] FAIL:17573730: Retreiving gender for 'CASANOVAS, M' failed.
+[2016-11-09 14:44:26 INFO  AuthorRetriever:63] 
+	Authors for 17573730:
+	First:
+Author:		ALVAREZ-CUESTA, E
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CASANOVAS, M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:26 INFO  AuthorRetriever:63] 
+	Authors for 21455007:
+	First:
+Author:		KHADR, SOPHIE N
+Gender:		female
+Probability:	1
+	Last:
+Author:		ABARA, ROSEMARY C
+Gender:		female
+Probability:	1
+[2016-11-09 14:44:27 ERROR AuthorRetriever:52] FAIL:24953576: Retreiving gender for 'AHMED, J' failed.
+[2016-11-09 14:44:27 INFO  AuthorRetriever:63] 
+	Authors for 24953576:
+	First:
+Author:		SHINDE, S R
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		AHMED, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:27 INFO  AuthorRetriever:63] 
+	Authors for 17255844:
+	First:
+Author:		HAIDEN, NADJA
+Gender:		female
+Probability:	1
+	Last:
+Author:		POLLAK, ARNOLD
+Gender:		male
+Probability:	0.98
+[2016-11-09 14:44:30 ERROR AuthorRetriever:52] FAIL:11416876: Retreiving gender for 'BASARAN, M M' failed.
+[2016-11-09 14:44:30 INFO  AuthorRetriever:63] 
+	Authors for 11416876:
+	First:
+Author:		BAHCECILER, NERIN N
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BASARAN, M M
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:31 ERROR AuthorRetriever:52] FAIL:11117271: Retreiving gender for 'CAVAGNI, G' failed.
+[2016-11-09 14:44:31 INFO  AuthorRetriever:63] 
+	Authors for 11117271:
+	First:
+Author:		CAFFARELLI, CARLO
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		CAVAGNI, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:32 INFO  AuthorRetriever:63] 
+	Authors for 17153880:
+	First:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+	Last:
+Author:		ESSENDROP, MORTEN
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:33 INFO  AuthorRetriever:63] 
+	Authors for 10321561:
+	First:
+Author:		BOUSQUET, JEAN
+Gender:		female
+Probability:	0.53
+	Last:
+Author:		ANDRE, CATHERINE
+Gender:		female
+Probability:	1
+[2016-11-09 14:44:34 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:44:35 ERROR AuthorRetriever:42] FAIL:25011352: Retreiving gender for 'CORZO, J L' failed.
+[2016-11-09 14:44:35 INFO  AuthorRetriever:63] 
+	Authors for 6391735:
+	First:
+Author:		COOPER, PHILIP J
+Gender:		male
+Probability:	1
+	Last:
+Author:		WARNER, JOHN O
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:44:36 ERROR AuthorRetriever:42] FAIL:12464165: Retreiving gender for 'CRIADO MOLINA, A' failed.
+[2016-11-09 14:44:36 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:44:36 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:37 INFO  AuthorRetriever:49] Gender for CALDERON, MOISES A (25011352) found in database.
+[2016-11-09 14:44:37 INFO  AuthorRetriever:63] 
+	Authors for 25011352:
+	First:
+Author:		CORZO, J L
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CALDERON, MOISES A
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:39 ERROR AuthorRetriever:52] FAIL:12464165: Retreiving gender for 'SANCHEZ GUIJO, P' failed.
+[2016-11-09 14:44:39 INFO  AuthorRetriever:63] 
+	Authors for 12464165:
+	First:
+Author:		CRIADO MOLINA, A
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		SANCHEZ GUIJO, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:42 ERROR AuthorRetriever:42] FAIL:16568708: Retreiving gender for 'GOMEZ VERA, J' failed.
+[2016-11-09 14:44:42 INFO  AuthorRetriever:63] 
+	Authors for 16409194:
+	First:
+Author:		DAHL, RONALD E
+Gender:		male
+Probability:	1
+	Last:
+Author:		RAK, SABINA
+Gender:		female
+Probability:	0.99
+[2016-11-09 14:44:42 ERROR AuthorRetriever:52] FAIL:19210358: Retreiving gender for 'CHANEZ, P' failed.
+[2016-11-09 14:44:42 INFO  AuthorRetriever:63] 
+	Authors for 19210358:
+	First:
+Author:		TILLIE-LEBLOND, ISABELLE
+Gender:		female
+Probability:	1
+	Last:
+Author:		CHANEZ, P
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:42 INFO  AuthorRetriever:63] 
+	Authors for 20100188:
+	First:
+Author:		EIFAN, AARIF O
+Gender:		male
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:44:44 ERROR AuthorRetriever:52] FAIL:16568708: Retreiving gender for 'GOMEZ VERA, J' failed.
+[2016-11-09 14:44:44 INFO  AuthorRetriever:63] 
+	Authors for 16568708:
+	First:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		GOMEZ VERA, J
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:47 ERROR AuthorRetriever:52] FAIL:12787302: Retreiving gender for 'FREDIANI, T' failed.
+[2016-11-09 14:44:47 INFO  AuthorRetriever:63] 
+	Authors for 12787302:
+	First:
+Author:		IPPOLITI, FLORA
+Gender:		female
+Probability:	1
+	Last:
+Author:		FREDIANI, T
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:47 INFO  AuthorRetriever:63] 
+	Authors for 17441414:
+	First:
+Author:		LA GRUTTA, STEFANIA
+Gender:		female
+Probability:	0.99
+	Last:
+Author:		LA ROSA, MARIO
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:44:47 INFO  AuthorRetriever:49] Gender for BARLAN, ISIL B (21641635) found in database.
+[2016-11-09 14:44:47 INFO  AuthorRetriever:63] 
+	Authors for 21641635:
+	First:
+Author:		KELES, SUNDUZ
+Gender:		female
+Probability:	1
+	Last:
+Author:		BARLAN, ISIL B
+Gender:		female
+Probability:	1
+[2016-11-09 14:44:49 ERROR AuthorRetriever:52] FAIL:2297142: Retreiving gender for 'DUAN, S Q' failed.
+[2016-11-09 14:44:49 INFO  AuthorRetriever:63] 
+	Authors for 2297142:
+	First:
+Author:		LENG, XI-SHENG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		DUAN, S Q
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:44:50 ERROR AuthorRetriever:42] FAIL:16176400: Retreiving gender for 'MARCUCCI, F' failed.
+[2016-11-09 14:44:52 INFO  AuthorRetriever:63] 
+	Authors for 16176400:
+	First:
+Author:		MARCUCCI, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BURASTERO, SAMUELE E
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:52 INFO  AuthorRetriever:39] Gender for MARCUCCI, F (12823127) found in database.
+[2016-11-09 14:44:52 INFO  AuthorRetriever:63] 
+	Authors for 16925685:
+	First:
+Author:		LUE, KO-HUANG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CHOU, MING-CHIH
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:52 INFO  AuthorRetriever:63] 
+	Authors for 11872551:
+	First:
+Author:		LEWITH, GEORGE T
+Gender:		male
+Probability:	0.99
+	Last:
+Author:		HOLGATE, STEPHEN T
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:54 INFO  AuthorRetriever:63] 
+	Authors for 12823127:
+	First:
+Author:		MARCUCCI, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PECORA, SILVIA
+Gender:		female
+Probability:	1
+[2016-11-09 14:44:54 ERROR AuthorRetriever:42] FAIL:15940132: Retreiving gender for 'MAROGNA, M' failed.
+[2016-11-09 14:44:55 ERROR AuthorRetriever:42] FAIL:25135744: Retreiving gender for 'DE BLAY, F' failed.
+[2016-11-09 14:44:57 INFO  AuthorRetriever:63] 
+	Authors for 15940132:
+	First:
+Author:		MAROGNA, M
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PASSALACQUA, GIOVANNI
+Gender:		male
+Probability:	1
+[2016-11-09 14:44:58 INFO  AuthorRetriever:63] 
+	Authors for 24797423:
+	First:
+Author:		MOSBECH, HOLGER
+Gender:		male
+Probability:	1
+	Last:
+Author:		CANONICA, GIORGIO WALTER
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:44:58 INFO  AuthorRetriever:63] 
+	Authors for 25135744:
+	First:
+Author:		DE BLAY, F
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		CANONICA, GIORGIO WALTER
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:44:59 ERROR AuthorRetriever:52] FAIL:21121080: Retreiving gender for 'NIGGEMANN, B' failed.
+[2016-11-09 14:44:59 INFO  AuthorRetriever:63] 
+	Authors for 21121080:
+	First:
+Author:		MOSGES, RALPH
+Gender:		male
+Probability:	1
+	Last:
+Author:		NIGGEMANN, B
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:01 ERROR AuthorRetriever:42] FAIL:11003448: Retreiving gender for 'PAJNO, G B' failed.
+[2016-11-09 14:45:01 ERROR AuthorRetriever:42] FAIL:15230823: Retreiving gender for 'PAJNO, G B' failed.
+[2016-11-09 14:45:02 ERROR AuthorRetriever:52] FAIL:10353581: Retreiving gender for 'GURBUZ, L' failed.
+[2016-11-09 14:45:02 INFO  AuthorRetriever:63] 
+	Authors for 10353581:
+	First:
+Author:		MUNGAN, DILSAD
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		GURBUZ, L
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:02 ERROR AuthorRetriever:52] FAIL:11003448: Retreiving gender for 'PARMIANI, S' failed.
+[2016-11-09 14:45:02 INFO  AuthorRetriever:63] 
+	Authors for 11003448:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PARMIANI, S
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:03 ERROR AuthorRetriever:52] FAIL:15230823: Retreiving gender for 'BARBERIO, G' failed.
+[2016-11-09 14:45:03 INFO  AuthorRetriever:63] 
+	Authors for 15230823:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BARBERIO, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:04 INFO  AuthorRetriever:39] Gender for PAJNO, G B (14656349) found in database.
+[2016-11-09 14:45:06 ERROR AuthorRetriever:42] FAIL:7983994: Retreiving gender for 'REILLY, D' failed.
+[2016-11-09 14:45:06 INFO  AuthorRetriever:49] Gender for BARBERIO, G (14656349) found in database.
+[2016-11-09 14:45:06 INFO  AuthorRetriever:63] 
+	Authors for 14656349:
+	First:
+Author:		PAJNO, G B
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		BARBERIO, G
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:07 INFO  AuthorRetriever:49] Gender for ANDRE, CATHERINE (17295799) found in database.
+[2016-11-09 14:45:07 INFO  AuthorRetriever:63] 
+	Authors for 17295799:
+	First:
+Author:		PHAM-THI, NHAN
+Gender:		male
+Probability:	0.75
+	Last:
+Author:		ANDRE, CATHERINE
+Gender:		female
+Probability:	1
+[2016-11-09 14:45:10 INFO  AuthorRetriever:63] 
+	Authors for 7983994:
+	First:
+Author:		REILLY, D
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		STEVENSON, RICHARD D
+Gender:		male
+Probability:	1
+[2016-11-09 14:45:14 INFO  AuthorRetriever:63] 
+	Authors for 21314002:
+	First:
+Author:		MAJAK, PAWEL
+Gender:		male
+Probability:	0.98
+	Last:
+Author:		STELMACH, IWONA
+Gender:		female
+Probability:	1
+[2016-11-09 14:45:16 INFO  AuthorRetriever:63] 
+	Authors for 19134016:
+	First:
+Author:		STELMACH, IWONA
+Gender:		female
+Probability:	1
+	Last:
+Author:		JERZYNSKA, JOANNA
+Gender:		female
+Probability:	1
+[2016-11-09 14:45:19 ERROR AuthorRetriever:42] FAIL:19895362: Retreiving gender for 'VOLTOLINI, S' failed.
+[2016-11-09 14:45:24 INFO  AuthorRetriever:63] 
+	Authors for 19895362:
+	First:
+Author:		VOLTOLINI, S
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		FRATI, FRANCO
+Gender:		male
+Probability:	1
+[2016-11-09 14:45:27 INFO  AuthorRetriever:63] 
+	Authors for 16403616:
+	First:
+Author:		NIU, CHEN-KUANG
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		WANG, JAW-YUAN
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:30 ERROR AuthorRetriever:42] FAIL:9700035: Retreiving gender for 'VOURDAS, D' failed.
+[2016-11-09 14:45:33 ERROR AuthorRetriever:52] FAIL:9700035: Retreiving gender for 'PAPAGEORGIOU, P S' failed.
+[2016-11-09 14:45:33 INFO  AuthorRetriever:63] 
+	Authors for 9700035:
+	First:
+Author:		VOURDAS, D
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PAPAGEORGIOU, P S
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:34 INFO  AuthorRetriever:63] 
+	Authors for 24591191:
+	First:
+Author:		TIAN, MEI
+Gender:		female
+Probability:	0.89
+	Last:
+Author:		ZHAO, DE-YU
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:37 ERROR AuthorRetriever:45] FAIL:25056584: Retreiving firstname for 'Wang L' failed.
+[2016-11-09 14:45:38 INFO  AuthorRetriever:63] 
+	Authors for 24717951:
+	First:
+Author:		SHAO, JIE
+Gender:		female
+Probability:	0.69
+	Last:
+Author:		CAO, LAN-FANG
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:45:42 ERROR AuthorRetriever:42] FAIL:22175765: Retreiving gender for 'KNULST, A C' failed.
+[2016-11-09 14:45:43 INFO  AuthorRetriever:63] 
+	Authors for 25056584:
+	First:
+Author:		Wang L
+Gender:		null
+Probability:	0.00
+	Last:
+Author:		DEVILLIER, PHILIPPE
+Gender:		male
+Probability:	0.99
+[2016-11-09 14:45:45 INFO  AuthorRetriever:63] 
+	Authors for 22175765:
+	First:
+Author:		KNULST, A C
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		MEIJER, YOLANDA
+Gender:		female
+Probability:	1
+[2016-11-09 14:45:49 INFO  AuthorRetriever:63] 
+	Authors for 22041501:
+	First:
+Author:		YUKSELEN, AYFER
+Gender:		female
+Probability:	1
+	Last:
+Author:		YILMAZ, MUSTAFA
+Gender:		male
+Probability:	1
+[2016-11-09 14:45:49 INFO  AuthorRetriever:49] Gender for YILMAZ, MUSTAFA (24053706) found in database.
+[2016-11-09 14:45:49 INFO  AuthorRetriever:63] 
+	Authors for 24053706:
+	First:
+Author:		YUKSELEN, AYFER
+Gender:		female
+Probability:	1
+	Last:
+Author:		YILMAZ, MUSTAFA
+Gender:		male
+Probability:	1
+[2016-11-09 14:45:52 INFO  AuthorRetriever:63] 
+	Authors for 24184147:
+	First:
+Author:		WOOD, ROBERT A
+Gender:		male
+Probability:	1
+	Last:
+Author:		BUSSE, WILLIAM W
+Gender:		male
+Probability:	1
+[2016-11-09 14:46:00 INFO  AuthorRetriever:63] 
+	Authors for 16822237:
+	First:
+Author:		BARDEN, ANNE E
+Gender:		female
+Probability:	1
+	Last:
+Author:		MORI, TREVOR A
+Gender:		male
+Probability:	1
+[2016-11-09 14:46:00 INFO  AuthorRetriever:63] 
+	Authors for 15129731:
+	First:
+Author:		BARDEN, ANNE E
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:06 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (17957152) found in database.
+[2016-11-09 14:46:06 INFO  AuthorRetriever:63] 
+	Authors for 17957152:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:07 ERROR AuthorRetriever:42] FAIL:15585690: Retreiving gender for 'DENBURG, J A' failed.
+[2016-11-09 14:46:08 INFO  AuthorRetriever:39] Gender for DUNSTAN, JANET A (14985680) found in database.
+[2016-11-09 14:46:09 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (15585690) found in database.
+[2016-11-09 14:46:09 INFO  AuthorRetriever:63] 
+	Authors for 15585690:
+	First:
+Author:		DENBURG, J A
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:10 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (14985680) found in database.
+[2016-11-09 14:46:10 INFO  AuthorRetriever:63] 
+	Authors for 14985680:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:12 INFO  AuthorRetriever:39] Gender for DUNSTAN, JANET A (14657879) found in database.
+[2016-11-09 14:46:13 INFO  AuthorRetriever:39] Gender for DUNSTAN, JANET A (12680858) found in database.
+[2016-11-09 14:46:14 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (14657879) found in database.
+[2016-11-09 14:46:14 INFO  AuthorRetriever:63] 
+	Authors for 14657879:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:15 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (12680858) found in database.
+[2016-11-09 14:46:15 INFO  AuthorRetriever:63] 
+	Authors for 12680858:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:17 INFO  AuthorRetriever:39] Gender for DUNSTAN, JANET A (15298564) found in database.
+[2016-11-09 14:46:17 INFO  AuthorRetriever:39] Gender for DUNSTAN, JANET A (17185423) found in database.
+[2016-11-09 14:46:19 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (15298564) found in database.
+[2016-11-09 14:46:19 INFO  AuthorRetriever:63] 
+	Authors for 15298564:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:19 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (17185423) found in database.
+[2016-11-09 14:46:19 INFO  AuthorRetriever:63] 
+	Authors for 17185423:
+	First:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:22 INFO  AuthorRetriever:39] Gender for PRESCOTT, SUSAN L (17596121) found in database.
+[2016-11-09 14:46:23 INFO  AuthorRetriever:49] Gender for DUNSTAN, JANET A (17596121) found in database.
+[2016-11-09 14:46:23 INFO  AuthorRetriever:63] 
+	Authors for 17596121:
+	First:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+	Last:
+Author:		DUNSTAN, JANET A
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:25 INFO  AuthorRetriever:49] Gender for PRESCOTT, SUSAN L (19150495) found in database.
+[2016-11-09 14:46:25 INFO  AuthorRetriever:63] 
+	Authors for 19150495:
+	First:
+Author:		MATTES, EUGEN
+Gender:		male
+Probability:	1
+	Last:
+Author:		PRESCOTT, SUSAN L
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:27 ERROR AuthorRetriever:52] FAIL:24191851: Retreiving gender for 'KIM, Y K' failed.
+[2016-11-09 14:46:27 INFO  AuthorRetriever:63] 
+	Authors for 24191851:
+	First:
+Author:		KIM, YOON-KEUN
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		KIM, Y K
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:46:29 ERROR AuthorRetriever:52] FAIL:21099447: Retreiving gender for 'DUCHEN, K' failed.
+[2016-11-09 14:46:29 INFO  AuthorRetriever:63] 
+	Authors for 21099447:
+	First:
+Author:		DUCHEN, KAREL
+Gender:		male
+Probability:	0.92
+	Last:
+Author:		DUCHEN, K
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:46:29 INFO  AuthorRetriever:39] Gender for DUCHEN, KAREL (19489765) found in database.
+[2016-11-09 14:46:29 INFO  AuthorRetriever:49] Gender for DUCHEN, K (21332799) found in database.
+[2016-11-09 14:46:29 INFO  AuthorRetriever:63] 
+	Authors for 21332799:
+	First:
+Author:		DUCHEN, KAREL
+Gender:		male
+Probability:	0.92
+	Last:
+Author:		DUCHEN, K
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:46:31 INFO  AuthorRetriever:49] Gender for DUCHEN, K (19489765) found in database.
+[2016-11-09 14:46:31 INFO  AuthorRetriever:63] 
+	Authors for 19489765:
+	First:
+Author:		DUCHEN, KAREL
+Gender:		male
+Probability:	0.92
+	Last:
+Author:		DUCHEN, K
+Gender:		notfound
+Probability:	0.00
+[2016-11-09 14:46:32 INFO  AuthorRetriever:39] Gender for DUCHEN, KAREL (19390480) found in database.
+[2016-11-09 14:46:34 INFO  AuthorRetriever:63] 
+	Authors for 19390480:
+	First:
+Author:		DUCHEN, KAREL
+Gender:		male
+Probability:	0.92
+	Last:
+Author:		FAGERAS, MALIN
+Gender:		female
+Probability:	0.98
+[2016-11-09 14:46:36 INFO  AuthorRetriever:63] 
+	Authors for 19091800:
+	First:
+Author:		ASSERHOJ, MARIE
+Gender:		female
+Probability:	0.99
+	Last:
+Author:		LAURITZEN, LOTTE
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:37 INFO  AuthorRetriever:49] Gender for LAURITZEN, LOTTE (21512889) found in database.
+[2016-11-09 14:46:37 INFO  AuthorRetriever:63] 
+	Authors for 21512889:
+	First:
+Author:		CHEATHAM, CAROL L
+Gender:		female
+Probability:	0.99
+	Last:
+Author:		LAURITZEN, LOTTE
+Gender:		female
+Probability:	1
+[2016-11-09 14:46:38 INFO  AuthorRetriever:39] Gender for LAURITZEN, LOTTE (16006428) found in database.
+[2016-11-09 14:46:40 INFO  AuthorRetriever:39] Gender for LAURITZEN, LOTTE (16188206) found in database.
+[2016-11-09 14:46:40 INFO  AuthorRetriever:49] Gender for LAURITZEN, LOTTE (16702318) found in database.
+[2016-11-09 14:46:40 INFO  AuthorRetriever:63] 
+	Authors for 16702318:
+	First:
+Author:		LARNKJAER, ANNI
+Gender:		female
+Probability:	0.98
+	Last:
+Author:		LAURITZEN, LOTTE
+Gender:		female
+Probability:	1
