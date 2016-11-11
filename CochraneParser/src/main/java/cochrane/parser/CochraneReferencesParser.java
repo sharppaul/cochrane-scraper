@@ -51,7 +51,7 @@ public class CochraneReferencesParser extends Thread {
 		Document doc = null;
 
 		try {
-			html = Getter.getHTML(this.cochraneUrl);
+			html = Getter.get(this.cochraneUrl);
 			doc = Jsoup.parse(html);
 
 			if (doc == null)
@@ -114,7 +114,7 @@ public class CochraneReferencesParser extends Thread {
 					File file = new File(this.outputDir + "/" + cochraneIdName + ".rm5");
 					file.getParentFile().mkdirs();
 					out = new PrintWriter(file);
-					out.print(Getter.getHTML(linkrm5));
+					out.print(Getter.get(linkrm5));
 					out.close();
 					break;
 				}

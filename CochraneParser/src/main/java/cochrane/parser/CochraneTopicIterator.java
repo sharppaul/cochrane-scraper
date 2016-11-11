@@ -18,7 +18,7 @@ public class CochraneTopicIterator {
 	public CochraneTopicIterator() {
 		try {
 			Document doc = Jsoup
-					.parse(Getter.getHTML("http://www.cochranelibrary.com/home/topic-and-review-group-list.html"));
+					.parse(Getter.get("http://www.cochranelibrary.com/home/topic-and-review-group-list.html"));
 
 			Element section = doc.select("section[class='browse-block__section']").first();
 			Elements links = section.select("a[class='browse-block__list-item-link']");

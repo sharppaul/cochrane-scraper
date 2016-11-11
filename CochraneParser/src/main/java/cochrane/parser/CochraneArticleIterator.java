@@ -29,7 +29,7 @@ public class CochraneArticleIterator extends Thread {
 			con.open();
 			for (int i = 1; i <= pages; i++) {
 				Document doc = Jsoup
-						.parse(Getter.getHTML(this.TOPIC_BASE_URL + this.topic + "/?per-page=100&page=" + i));
+						.parse(Getter.get(this.TOPIC_BASE_URL + this.topic + "/?per-page=100&page=" + i));
 				Elements articles = doc.select("article[class='results-block__article']");
 
 				for (Element article : articles) {

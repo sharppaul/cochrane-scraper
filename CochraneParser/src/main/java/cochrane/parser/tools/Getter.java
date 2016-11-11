@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 
 public class Getter {
-	public static String getHTML(String urlToRead) throws Exception {
+	public static String get(String urlToRead) throws Exception {
 		StringBuilder result = new StringBuilder();
 		URL url = new URL(urlToRead);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -26,19 +26,24 @@ public class Getter {
 					result.append(line);
 				}
 				rd.close();
+
 				hasConnection = true;
 			} catch (SocketException e) {
 				logger.error(e.getMessage(), e);
 			} catch (FileNotFoundException e) {
 				attempts++;
-				Thread.sleep(50);
-				if(attempts > 3){
+				Thread.sleep(500);
+				if (attempts > 3) {
 					logger.error(e.getMessage(), e);
 				}
+			} catch (IOException e) {
+				attempts = 4;
+				logger.error(e.getMessage());
+				return "{\"error\":" + conn.getResponseCode() + "}";
 			} catch (Exception e) {
 				attempts++;
-				Thread.sleep(50);
-				if(attempts > 3){
+				Thread.sleep(500);
+				if (attempts > 3) {
 					logger.error(e.getMessage(), e);
 				}
 			}
