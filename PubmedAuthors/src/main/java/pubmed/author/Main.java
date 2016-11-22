@@ -17,15 +17,15 @@ public class Main {
 	private SQLConnection con;
 	private String genderize_key;
 	private final boolean TESTING = false;
-	private final String[] testpubmedid = {"19489765","24953576"};
+	private final String[] testpubmedid = { "19489765", "24953576" };
 	private int length;
 	final static Logger logger = Logger.getLogger(Main.class);
-	
+
 	public static void main(String[] args) {
 		try {
 			new Main();
 		} catch (Exception e) {
-			logger.error(e.getMessage(),e);
+			logger.error(e.getMessage(), e);
 		}
 	}
 
@@ -36,36 +36,36 @@ public class Main {
 		list = con.getReferences();
 		it = list.iterator();
 		this.length = list.size();
-		genderize_key = Tools.readSmallFile(System.getProperty("user.home")+"/.genderize_key");
-		
-		if(this.TESTING){
+		genderize_key = Tools.readSmallFile(System.getProperty("user.home") + "/.genderize_key");
+
+		if (this.TESTING) {
 			test();
 		} else {
 			run();
 		}
-		
+
 		while (!isDone()) {
 			Thread.sleep(40);
 		}
 		con.close();
 		logger.info("MAIN THREAD: DONE");
 	}
-	
-	private void test(){
+
+	private void test() {
 		authors[0] = new AuthorRetriever(this.testpubmedid[0], this.con, this.genderize_key);
 		authors[0].start();
 	}
-	
+
 	private void run() throws InterruptedException {
 		int index = 0;
 		while (it.hasNext()) {
-			
+
 			for (int i = 0; i < authors.length; i++) {
-				if(null == authors[i] || authors[i].isDone) {
+				if (null == authors[i] || authors[i].isDone) {
 					authors[i] = new AuthorRetriever(it.next(), this.con, this.genderize_key);
 					authors[i].start();
 					index++;
-					logger.info("No. " + index + "/"+this.length + " has started.");
+					logger.info("No. " + index + "/" + this.length + " has started.");
 				}
 				Thread.sleep(100);
 			}

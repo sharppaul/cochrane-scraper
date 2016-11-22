@@ -11,15 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 public class Tools {
-	public static final String ANSI_RESET = "\u001B[0m";
-	public static final String ANSI_BLACK = "\u001B[30m";
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_GREEN = "\u001B[32m";
-	public static final String ANSI_YELLOW = "\u001B[33m";
-	public static final String ANSI_BLUE = "\u001B[34m";
-	public static final String ANSI_PURPLE = "\u001B[35m";
-	public static final String ANSI_CYAN = "\u001B[36m";
-	public static final String ANSI_WHITE = "\u001B[37m";
 	final static Logger logger = Logger.getLogger(Tools.class);
 
 	public static String toSHA1(byte[] convertme) {
@@ -73,5 +64,12 @@ public class Tools {
 
 	public static String removeAccents(String value) {
 		return StringUtils.stripAccents(value);
+	}
+	
+	public static String zeroFill(String in, int length){
+		while(in.length() < length){
+			in = "0" + in;
+		}
+		return in;
 	}
 }

@@ -13,6 +13,14 @@ public class Getter {
 		URL url = new URL(urlToRead);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
+		if (conn.getHeaderFields().containsKey("X-Rate-Limit-Remaining")) {
+			int time = conn.getHeaderFieldInt("X-Rate-Reset", 0);
+			String timeString = (time / (24 * 3600) + " days & "
+					+ Tools.zeroFill(Integer.toString((time / 3600) % 24), 2) + ":"
+					+ Tools.zeroFill(Integer.toString(time%3600 / 60), 2));
+			logger.info("Remaining requests: " + conn.getHeaderField("X-Rate-Limit-Remaining") + " time until refresh: "
+					+ timeString);
+		}
 		boolean hasConnection = false;
 		String line;
 		BufferedReader rd;
