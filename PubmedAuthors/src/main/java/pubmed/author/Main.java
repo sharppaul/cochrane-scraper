@@ -18,12 +18,12 @@ public class Main {
 	private String genderize_key;
 	private final boolean TESTING = false;
 	private final String[] testpubmedid = {"19489765","24953576"};
+	private int length;
 	final static Logger logger = Logger.getLogger(Main.class);
 	
 	public static void main(String[] args) {
 		try {
-			//new Main();
-			System.out.println(Tools.ANSI_GREEN+"green!"+Tools.ANSI_RESET+" Normal."+Tools.ANSI_BLUE+" Blue!");
+			new Main();
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
 		}
@@ -35,7 +35,7 @@ public class Main {
 		con.open();
 		list = con.getReferences();
 		it = list.iterator();
-
+		this.length = list.size();
 		genderize_key = Tools.readSmallFile(System.getProperty("user.home")+"/.genderize_key");
 		
 		if(this.TESTING){
@@ -57,11 +57,15 @@ public class Main {
 	}
 	
 	private void run() throws InterruptedException {
+		int index = 0;
 		while (it.hasNext()) {
+			
 			for (int i = 0; i < authors.length; i++) {
 				if(null == authors[i] || authors[i].isDone) {
 					authors[i] = new AuthorRetriever(it.next(), this.con, this.genderize_key);
 					authors[i].start();
+					index++;
+					logger.info("No. " + index + "/"+this.length + " has started.");
 				}
 				Thread.sleep(100);
 			}

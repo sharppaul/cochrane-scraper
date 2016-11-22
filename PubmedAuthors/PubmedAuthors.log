@@ -1,0 +1,106 @@
+[2016-11-22 13:25:51 INFO  Main:33(Main.java:33)] MAIN THREAD: START
+[2016-11-22 13:25:52 INFO  Main:67(Main.java:67)] No. 1/102419 has started.
+[2016-11-22 13:25:52 INFO  Main:67(Main.java:67)] No. 1/102419 has started.
+[2016-11-22 13:25:52 INFO  Main:67(Main.java:67)] No. 1/102419 has started.
+[2016-11-22 13:25:52 INFO  Main:67(Main.java:67)] No. 1/102419 has started.
+[2016-11-22 13:25:57 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'DEVIATKINA, N P' failed. 100048
+[2016-11-22 13:26:12 INFO  Main:33(Main.java:33)] MAIN THREAD: START
+[2016-11-22 13:26:12 INFO  Main:68(Main.java:68)] No. 2/102419 has started.
+[2016-11-22 13:26:13 INFO  Main:68(Main.java:68)] No. 3/102419 has started.
+[2016-11-22 13:26:13 INFO  Main:68(Main.java:68)] No. 4/102419 has started.
+[2016-11-22 13:26:13 INFO  Main:68(Main.java:68)] No. 5/102419 has started.
+[2016-11-22 13:26:16 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'DEVIATKINA, N P' failed. 100048
+[2016-11-22 13:26:16 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'VAN PRAAG, H M' failed. 1000139
+[2016-11-22 13:26:26 INFO  Main:33(Main.java:33)] MAIN THREAD: START
+[2016-11-22 13:26:27 INFO  Main:68(Main.java:68)] No. 1/102419 has started.
+[2016-11-22 13:26:27 INFO  Main:68(Main.java:68)] No. 2/102419 has started.
+[2016-11-22 13:26:27 INFO  Main:68(Main.java:68)] No. 3/102419 has started.
+[2016-11-22 13:26:27 INFO  Main:68(Main.java:68)] No. 4/102419 has started.
+[2016-11-22 13:26:31 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'DEVIATKINA, N P' failed. 100048
+[2016-11-22 13:26:31 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'DEVIATKINA, N P' failed. 100048
+[2016-11-22 13:26:31 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'JUNG, E G' failed. 1001594
+[2016-11-22 13:26:32 ERROR AuthorRetriever:51(AuthorRetriever.java:51)] Retreiving gender for 'VAN PRAAG, H M' failed. 1000139
+[2016-11-22 13:26:34 ERROR AuthorRetriever:61(AuthorRetriever.java:61)] Retreiving gender for 'DOLS, L C' failed. 1000139
+[2016-11-22 13:26:34 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 1000139: Clozapine versus perphenazine: the value of the biochemical mode of action of neuroleptics in predicting their therapeutic activity. (1976)
+	First:
+Author:		VAN PRAAG, H M
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		DOLS, L C
+Gender:		notfound
+Probability:	0.00
+[2016-11-22 13:26:34 ERROR AuthorRetriever:61(AuthorRetriever.java:61)] Retreiving gender for 'JUNG, E G' failed. 1001594
+[2016-11-22 13:26:34 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 1001594: [X-ray therapy of hemangiomatas (author's transl)]. (1976)
+	First:
+Author:		JUNG, E G
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		JUNG, E G
+Gender:		notfound
+Probability:	0.00
+[2016-11-22 13:26:34 ERROR AuthorRetriever:61(AuthorRetriever.java:61)] Retreiving gender for 'PETROVA, I S' failed. 100048
+[2016-11-22 13:26:34 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 100048: [Evaluation of the sanative action of rifampicin on the meningococcal carrier state]. (1978)
+	First:
+Author:		DEVIATKINA, N P
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PETROVA, I S
+Gender:		notfound
+Probability:	0.00
+[2016-11-22 13:26:34 INFO  AuthorRetriever:58(AuthorRetriever.java:58)] Gender for PETROVA, I S (100048) found in database.
+[2016-11-22 13:26:34 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 100048: [Evaluation of the sanative action of rifampicin on the meningococcal carrier state]. (1978)
+	First:
+Author:		DEVIATKINA, N P
+Gender:		notfound
+Probability:	0.00
+	Last:
+Author:		PETROVA, I S
+Gender:		notfound
+Probability:	0.00
+[2016-11-22 13:26:34 INFO  Main:68(Main.java:68)] No. 5/102419 has started.
+[2016-11-22 13:26:34 INFO  Main:68(Main.java:68)] No. 6/102419 has started.
+[2016-11-22 13:26:35 INFO  Main:68(Main.java:68)] No. 7/102419 has started.
+[2016-11-22 13:26:35 INFO  Main:68(Main.java:68)] No. 8/102419 has started.
+[2016-11-22 13:26:44 ERROR AuthorRetriever:61(AuthorRetriever.java:61)] Retreiving gender for 'LABARBA, R C' failed. 1001842
+[2016-11-22 13:26:44 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 1001842: The effects of tactile and kinesthetic stimulation on neonatal development in the premature infant. (1976)
+	First:
+Author:		WHITE, JENNIFER L
+Gender:		female
+Probability:	1
+	Last:
+Author:		LABARBA, R C
+Gender:		notfound
+Probability:	0.00
+[2016-11-22 13:26:44 INFO  Main:68(Main.java:68)] No. 9/102419 has started.
+[2016-11-22 13:26:48 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 10021717: Use of surfactant for prophylaxis versus rescue treatment of respiratory distress syndrome: experience from an Italian-Bulgarian trial. (1997)
+	First:
+Author:		BEVILACQUA, GENEROSO
+Gender:		male
+Probability:	1
+	Last:
+Author:		BUSSOLATI, GIANNI
+Gender:		male
+Probability:	0.99
+[2016-11-22 13:26:48 INFO  AuthorRetriever:72(AuthorRetriever.java:72)] 
+	Authors for 10021717: Use of surfactant for prophylaxis versus rescue treatment of respiratory distress syndrome: experience from an Italian-Bulgarian trial. (1997)
+	First:
+Author:		BEVILACQUA, GENEROSO
+Gender:		male
+Probability:	1
+	Last:
+Author:		BUSSOLATI, GIANNI
+Gender:		male
+Probability:	0.99
+[2016-11-22 13:26:48 INFO  Main:68(Main.java:68)] No. 10/102419 has started.
+[2016-11-22 13:26:49 INFO  Main:68(Main.java:68)] No. 11/102419 has started.
+[2016-11-22 13:26:52 INFO  AuthorRetriever:48(AuthorRetriever.java:48)] Gender for KOMULAINEN, M (10022414) found in database.
+[2016-11-22 13:26:53 INFO  AuthorRetriever:48(AuthorRetriever.java:48)] Gender for KOMULAINEN, M (10022414) found in database.

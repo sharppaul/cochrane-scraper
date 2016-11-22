@@ -32,7 +32,7 @@ public class SQLConnection {
 		ResultSet rs = null;
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT reference_pubmed_id FROM refs;");
+			rs = st.executeQuery("SELECT reference_pubmed_id FROM refs ORDER BY reference_pubmed_id ASC;");
 			while (rs.next())
 				list.add(rs.getString(1));
 		} catch (SQLException ex) {
