@@ -28,11 +28,12 @@
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="D:\Documents\Cochrane Parser" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="Main - CochraneParser" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\weerh\Desktop\cochraneparser.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Main (1) - PubmedAuthors" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\weerh\Desktop\genderizer.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\weerh\Desktop\genderizer.jar"/>
 			<item value="C:\Users\weerh\Desktop\cochraneparser.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">

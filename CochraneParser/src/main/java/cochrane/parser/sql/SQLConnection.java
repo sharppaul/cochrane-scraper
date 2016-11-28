@@ -42,7 +42,7 @@ public class SQLConnection {
 				st.executeUpdate(query);
 			return true;
 		} catch (SQLException ex) {
-			System.err.println(ex.getLocalizedMessage() + "\n" + query);
+			System.err.println(ex.getMessage() + "\n" + query);
 		} finally {
 			try {
 				if (st != null) {

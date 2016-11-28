@@ -266,7 +266,7 @@ public class AuthorRetriever extends Thread {
 	private JSONObject getGenderJSON(String firstname) throws JSONException, UnsupportedEncodingException, Exception {
 		final String GENDERIZE_BASE_URL = "https://api.genderize.io/";
 		JSONObject result = new JSONObject(Getter.get(GENDERIZE_BASE_URL + "?name="
-				+ URLEncoder.encode(firstname, "UTF-8") )); //+ "&apikey=" + this.GENDERIZE_API_KEY));
+				+ URLEncoder.encode(firstname, "UTF-8") + "&apikey=" + this.GENDERIZE_API_KEY));
 		if (result.has("error")) {
 			logger.error("Genderize.io HTTP Error " + result.getInt("error"));
 			switch (result.getInt("error")) {
