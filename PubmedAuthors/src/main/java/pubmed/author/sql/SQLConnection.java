@@ -92,7 +92,7 @@ public class SQLConnection {
 			rs.close();
 			st = con.prepareStatement(
 					"SELECT last_gender, last_probability FROM refs_author WHERE author_last LIKE ?;");
-			
+
 			st.setString(1, "%, " + firstName);
 			rs = st.executeQuery();
 			if (rs.next()) {

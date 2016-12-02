@@ -12,7 +12,8 @@ import org.apache.log4j.Logger;
 
 public class Tools {
 	final static Logger logger = Logger.getLogger(Tools.class);
-
+	
+	//Convert byte array to SHA1 string. Not used anymore.
 	public static String toSHA1(byte[] convertme) {
 		MessageDigest md = null;
 		try {
@@ -22,7 +23,8 @@ public class Tools {
 		}
 		return Tools.byteArrayToHexString(md.digest(convertme));
 	}
-
+	
+	//Convert byte array to Hexadecimal string. Not used anymore.
 	public static String byteArrayToHexString(byte[] b) {
 		String result = "";
 		for (int i = 0; i < b.length; i++) {
@@ -31,6 +33,7 @@ public class Tools {
 		return result;
 	}
 	
+	//Reads small files into a string. It's intended for small files, reading big files with this might not be safe.
 	public static String readSmallFile(String filename) throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		try {
@@ -54,7 +57,7 @@ public class Tools {
 
 	// I ignore the resource warning, because the inputstream should be closed
 	// after calling this method. It is not initialized here and should not be
-	// closed here.
+	// closed here. This method converts an IS to a readable string.
 	@SuppressWarnings("resource")
 	public static String convertStreamToString(java.io.InputStream is) {
 		Scanner s = new Scanner(is);
@@ -62,10 +65,12 @@ public class Tools {
 		return s.hasNext() ? s.next() : "";
 	}
 
+	// Removes accents from text. Used to be a different method, hence why it's in Tools.
 	public static String removeAccents(String value) {
 		return StringUtils.stripAccents(value);
 	}
 	
+	// Zerofill a string to given length int. If length is lower than string length, nothing is added.
 	public static String zeroFill(String in, int length){
 		while(in.length() < length){
 			in = "0" + in;

@@ -21,11 +21,13 @@ public class Poster {
 	List<NameValuePair> params = new ArrayList<NameValuePair>();
 	final static Logger logger = Logger.getLogger(Poster.class);
 
+	// this class is basically a wrapper for a more extended HttpClient
 	public Poster(String url) {
 		httpclient = HttpClients.createDefault();
 		httppost = new HttpPost(url);
 	}
 
+	// add simple http post parameter to Poster.
 	public void addParameter(String key, String value) {
 		params.add(new BasicNameValuePair(key, value));
 	}
@@ -44,7 +46,6 @@ public class Poster {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
-		
 
 		try {
 			instream.close();

@@ -42,8 +42,13 @@ public class AuthorRetriever extends Thread {
 
 	public void run() {
 		try {
+			// get names from Pubmed entrez API
 			if (getPubmedData()) {
+				// get first author firstname
 				if (getFirstName("first")) {
+					// check if gender/author is already in database, if not,
+					// get gender from genderize.io
+
 					if (authorInDatabase("first")) {
 						logger.info("Gender for " + this.first + " (" + this.pubmedid + ") found in database.");
 					} else {
@@ -53,7 +58,11 @@ public class AuthorRetriever extends Thread {
 				} else {
 					logger.error("Retreiving firstname for '" + first + "' failed. " + this.pubmedid);
 				}
+
+				// get last author firstname
 				if (getFirstName("last")) {
+					// check if gender/author is already in database, if not,
+					// get gender from genderize.io
 					if (authorInDatabase("last")) {
 						logger.info("Gender for " + this.last + " (" + this.pubmedid + ") found in database.");
 					} else {
@@ -65,6 +74,9 @@ public class AuthorRetriever extends Thread {
 				}
 			}
 
+			// inserting it into database, even if values are null. If it fails,
+			// it's saved in the logfile, if it succeeds, then the result is
+			// saved in the logfiles.
 			if (!sql.insertAuthors(this.pubmedid, this.first, this.last, this.gender1, this.gender2, this.probability1,
 					this.probability2, this.title, this.year)) {
 				logger.error("Insert into database failed for: " + first + ", " + last + " (" + this.pubmedid + ")");
@@ -76,10 +88,14 @@ public class AuthorRetriever extends Thread {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
+			// always set isDone to true in the end, it let's the main thread
+			// know if it's done or not.
 			this.isDone = true;
 		}
 	}
 
+	// unused method to check if a 'name' is a research group/network by
+	// checking for certain keywords.
 	@SuppressWarnings("unused")
 	private boolean isGroup(String input) {
 		String[] matches = new String[] { "Network", "Group", "Team", "network", "group", "team" };
@@ -89,6 +105,7 @@ public class AuthorRetriever extends Thread {
 		return false;
 	}
 
+	// checks if author is in the database already.
 	private boolean authorInDatabase(String which) {
 		String output = null;
 		if (which.equals("first"))
@@ -111,6 +128,7 @@ public class AuthorRetriever extends Thread {
 		return false;
 	}
 
+	// collects the pubmed Entrez API data
 	private boolean getPubmedData() {
 		String url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=" + pubmedid;
 		Document doc = null;
@@ -146,6 +164,7 @@ public class AuthorRetriever extends Thread {
 		return false;
 	}
 
+	// gets firstname from a tool called PubReminer
 	private boolean getFirstName(String who) {
 		int attempts = 0;
 		while (attempts <= 3) {
@@ -156,15 +175,20 @@ public class AuthorRetriever extends Thread {
 				else
 					doc = Jsoup.parse(getForFirstName(this.last.replace(",", "")));
 				String result = getNameFromTable(doc, 0);
+
 				if (!matchesLastname(who.equals("first") ? this.first : this.last, result)
 						|| toFirstname(result, true).isEmpty())
+					// looks at the first 3 names in the table, and checks if
+					// any have a firstname, while having the same surname, this
+					// is most likely the firstname of the author
 					for (int i = 1; i < 3; i++) {
-						String oldresult = result;
-						result = getNameFromTable(doc, i);
-						if (!matchesLastname(oldresult, result) || toFirstname(result, true).isEmpty()) {
-							result = oldresult;
-						}
+					String oldresult = result;
+					result = getNameFromTable(doc, i);
+					if (!matchesLastname(oldresult, result) || toFirstname(result, true).isEmpty()) {
+					result = oldresult;
 					}
+					}
+
 				if (who.equals("first")) {
 					if (matchesLastname(this.first, result))
 						this.first = result;
@@ -172,6 +196,7 @@ public class AuthorRetriever extends Thread {
 					if (matchesLastname(this.last, result))
 						this.last = result;
 				}
+
 				if (!result.equals("null") || result != null)
 					return true;
 			} catch (Exception e) {
@@ -186,6 +211,8 @@ public class AuthorRetriever extends Thread {
 		return false;
 	}
 
+	// since this piece of code is used multiple times in getFirstName, I put it
+	// in a seperate private method.
 	private String getNameFromTable(Element doc, int try_no) {
 		Elements authors = doc.getElementsByClass("general");
 		Element tablerow = authors.get(3).getElementsByTag("tr").get(1 + try_no);
@@ -198,14 +225,18 @@ public class AuthorRetriever extends Thread {
 		return result;
 	}
 
+	// checks if last name is the same. used in getFirstName
 	private boolean matchesLastname(String str1, String str2) {
 		return str1.toUpperCase().startsWith(str2.split(",")[0].toUpperCase());
 	}
 
+	// retrieves the gender for one of the Authors from genderize.io API
 	private boolean getGender(String who) {
 		try {
 			String firstname;
 			boolean goodToGo;
+			// check if we're good to go, we don't want to waste a request to a
+			// null variable.
 			if (who.equals("first")) {
 				goodToGo = (this.gender1 == null || this.gender1.isEmpty() || this.gender1.equals("null"));
 				firstname = toFirstname(this.first, true);
@@ -216,9 +247,9 @@ public class AuthorRetriever extends Thread {
 
 			if (goodToGo) {
 				if (firstname != null && firstname.length() > 1) {
+					// gets JSON encoded message from the API
 					JSONObject result = getGenderJSON(firstname);
-					
-					
+
 					if (result.has("gender") & result.get("gender") != null & result.get("gender") != JSONObject.NULL) {
 						if (who.equals("first")) {
 							this.gender1 = (String) result.get("gender");
@@ -228,15 +259,18 @@ public class AuthorRetriever extends Thread {
 							this.probability2 = "" + result.get("probability");
 						}
 					} else {
+						// tries it a second time, this time with initials,
+						// maybe that'll be it.
 						if (who.equals("first")) {
 							firstname = toFirstname(this.first, false);
 						} else {
 							firstname = toFirstname(this.last, false);
 						}
 						result = getGenderJSON(firstname);
-						if (result.has("gender") & result.get("gender") != null & result.get("gender") != JSONObject.NULL) {
+						if (result.has("gender") & result.get("gender") != null
+								& result.get("gender") != JSONObject.NULL) {
 							if (who.equals("first")) {
-								this.gender1 =  (String) result.get("gender");
+								this.gender1 = (String) result.get("gender");
 								this.probability1 = "" + result.get("probability");
 							} else {
 								this.gender2 = (String) result.get("gender");
@@ -263,12 +297,14 @@ public class AuthorRetriever extends Thread {
 		return false;
 	}
 
+	// gets the JSON encoded message from genderize.io API.
 	private JSONObject getGenderJSON(String firstname) throws JSONException, UnsupportedEncodingException, Exception {
 		final String GENDERIZE_BASE_URL = "https://api.genderize.io/";
 		JSONObject result = new JSONObject(Getter.get(GENDERIZE_BASE_URL + "?name="
 				+ URLEncoder.encode(firstname, "UTF-8") + "&apikey=" + this.GENDERIZE_API_KEY));
 		if (result.has("error")) {
 			logger.error("Genderize.io HTTP Error " + result.getInt("error"));
+			// if result has an error, log it.
 			switch (result.getInt("error")) {
 			case 400:
 				logger.error("Genderize.io: 400 idk error");
@@ -282,6 +318,9 @@ public class AuthorRetriever extends Thread {
 			case 429:
 				logger.error("Genderize.io: Too many requests!");
 				Thread.sleep(100);
+				// if we used our requests, just wait for the user to fix this.
+				// You can also quit the program, and use startAt argument to
+				// restart at the last pubmed ID.
 				Scanner s = new Scanner(System.in);
 				System.out.println(
 						"Thread " + this.pubmedid + " halted, too many requests, type 'CONTINUE' to continue...");
@@ -292,13 +331,16 @@ public class AuthorRetriever extends Thread {
 			case 500:
 				logger.error("Genderize.io: Internal server error!");
 				Thread.sleep(1000);
-				// return getGender(who);
 				break;
 			}
 		}
 		return result;
 	}
 
+	// retrieves a full name (e.g. OBAMA, BARACK) and returns the firstname
+	// (e.g. BARACK), if 'full' is true, other initials are returned too, needed
+	// for
+	// some names foreign names.
 	private String toFirstname(String name, boolean full) {
 		if (name != null) {
 			try {
@@ -322,12 +364,14 @@ public class AuthorRetriever extends Thread {
 		}
 		return null;
 	}
-
+	
+	//unused alias.
 	@SuppressWarnings("unused")
 	private boolean getGenders() {
 		return (getGender("first") & getGender("last"));
 	}
 
+	//retrieves the HTML for the getFirstName
 	private String getForFirstName(String name) {
 		Poster post = new Poster("http://hgserver2.amc.nl/cgi-bin/miner/miner2.cgi");
 		try {
@@ -350,6 +394,7 @@ public class AuthorRetriever extends Thread {
 		return post.execute();
 	}
 
+	//String representation of the data.
 	public String toString() {
 		return "\tAuthors for " + this.pubmedid + ": " + this.title + " (" + this.year + ")\n\tFirst:\nAuthor:\t\t"
 				+ this.first + "\nGender:\t\t" + this.gender1 + "\nProbability:\t" + this.probability1
