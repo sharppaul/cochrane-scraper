@@ -22,16 +22,19 @@ public class CochraneArticleIterator extends Thread {
 		this.con = new SQLConnection("localhost", "3306", "paul", "paul", "[paul3514]");
 	}
 
+
 	@Override
 	public void run() {
 		try {
 			int pages = 1;
 			con.open();
 			for (int i = 1; i <= pages; i++) {
+				
+				//get all articles under current topic, scroll through the pages, and parse the references from each topic
 				Document doc = Jsoup
 						.parse(Getter.get(this.TOPIC_BASE_URL + this.topic + "/?per-page=100&page=" + i));
 				Elements articles = doc.select("article[class='results-block__article']");
-
+				
 				for (Element article : articles) {
 					String link = article.select("a[href]").select("a[class='results-block__link']").first()
 							.attr("href");
@@ -41,7 +44,8 @@ public class CochraneArticleIterator extends Thread {
 						this.delay(100);
 					}
 				}
-
+				
+				//check if there are more than one pages.
 				if (i == 1) {
 					Elements block_count = doc.getElementsByClass("results-block__count-display");
 					try {
@@ -60,6 +64,7 @@ public class CochraneArticleIterator extends Thread {
 		}
 	}
 
+	//checks if we should parse the article if it's not accessible from this IP.
 	@SuppressWarnings("unused")
 	private boolean isFree(Element article) {
 		if (SHOULD_BE_FREE && article
@@ -68,6 +73,7 @@ public class CochraneArticleIterator extends Thread {
 		return true;
 	}
 
+	//simple sleep method.
 	public void delay(long millis) {
 		try {
 			Thread.sleep(millis);

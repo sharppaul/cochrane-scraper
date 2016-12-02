@@ -61,14 +61,13 @@ public class CochraneReferencesParser extends Thread {
 			Element referencescontent = null; // doc.getElementById(cochraneId +
 												// "-bbs1-0001"); // easy way,
 												// less fail proof
-			
+
 			// cochraneid-sec-0011 is the ID of the "data and analyses" item.
 			Element datacontent = null;// = doc.getElementById(cochraneId +
 										// "-sec1-0011"); // easy way, less fail
 										// proof
-			
-			
-			//look for references included in the footer
+
+			// look for references included in the footer
 			Elements footer_sections = doc.getElementById(cochraneId + "-bibl-0001").getElementsByTag("div");
 			for (Element e : footer_sections) {
 				if (e.html()
@@ -77,7 +76,7 @@ public class CochraneReferencesParser extends Thread {
 				}
 			}
 
-			//look for data and analyses
+			// look for data and analyses
 			Elements data_sections = doc.getElementById("main-content").getElementsByTag("section");
 			for (Element e : data_sections) {
 				if (e.html().startsWith("<h2>Data and analyses")) {
@@ -85,10 +84,13 @@ public class CochraneReferencesParser extends Thread {
 				}
 			}
 
+			// checks if we should continue, if there's no data, return
 			if (datacontent == null) {
-				System.out.println("SUCCESS \tNo 'Data and analyses' found. " + this.cochraneIdName );
+				System.out.println("SUCCESS \tNo 'Data and analyses' found. " + this.cochraneIdName);
 				return;
 			}
+
+			// checks if we should continue, if there's no references, return
 			if (referencescontent == null) {
 				System.out.println("SUCCESS \tNo 'Included references' found. " + this.cochraneIdName);
 				return;
@@ -97,19 +99,21 @@ public class CochraneReferencesParser extends Thread {
 			String linkrm5 = null;
 			Elements datalinks = datacontent.getElementsByTag("a");
 			for (Element link : datalinks) {
-				// System.out.println(link.toString() + "\t" + link.html());
+
 				if (link.html().equals("Download statistical data")) {
 					// got the download statistical data link (aka. rm5 file)
 
 					try {
 						linkrm5 = URLDecoder.decode(link.attr("href").split("downloadLink=")[1], "UTF-8")
 								.replaceAll("&amp;", "&");
-						// decode it to get it.
+						// decode URL decode it to retrieve the link
 					} catch (Exception e) {
 						e.printStackTrace();
-						// try/catch for the maybe arrayoutofbounds and other
+						// try/catch for the arrayoutofbounds and other
 						// unexpected errors which may not be fatal.
 					}
+					
+					//download RM5 and save it to file.
 					System.out.println("\tFOUND RM5:" + linkrm5);
 					File file = new File(this.outputDir + "/" + cochraneIdName + ".rm5");
 					file.getParentFile().mkdirs();
@@ -133,6 +137,8 @@ public class CochraneReferencesParser extends Thread {
 
 			con.insertReferences(cochraneIdName, referencedids, topic);
 
+			// if we should output to a file (even if we already output to
+			// mysql)
 			if (outputToFile) {
 				File file = new File(this.outputDir + "/" + cochraneIdName + ".out");
 				file.getParentFile().mkdirs();

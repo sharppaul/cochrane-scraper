@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		//gets all topics and asks user if we should iterate through each.
 		CochraneTopicIterator cti = new CochraneTopicIterator();
 		if ((args.length > 0) ? args[0].equals("-start") : false) {
 			System.out.println("Starting...");
