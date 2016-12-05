@@ -3,7 +3,7 @@ SELECT
     CASE WHEN LENGTH( SUBSTRING_INDEX(refs.cochrane_id,'.',-1)) > 4 THEN ''
     ELSE SUBSTRING_INDEX(refs.cochrane_id,'.',-1) END
     AS cochrane_pub, 
-    refs.reference_pubmed_id AS study_PMID,
+    REPLACE(refs.reference_pubmed_id, ',', '&#44') AS study_PMID,
     refs_author.year AS study_year,
     refs_author.title AS study_title,
     SUBSTRING_INDEX(refs_author.author_first,',',1) AS first_author_surname,
