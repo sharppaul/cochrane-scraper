@@ -1,4 +1,4 @@
-# Cochrane Parser
+# Cochrane Scraper
 
 These two Java programs get all references and statistical data from studies in the Cochrane Library. (http://www.cochranelibrary.com/)
 
