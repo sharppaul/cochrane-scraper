@@ -4,7 +4,7 @@
  * finished on 13-9-2016
  */
 
-package cochrane.parser;
+package cochrane.scraper;
 
 import java.util.Scanner;
 

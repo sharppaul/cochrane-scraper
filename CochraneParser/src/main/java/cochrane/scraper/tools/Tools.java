@@ -1,4 +1,4 @@
-package cochrane.parser.tools;
+package cochrane.scraper.tools;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

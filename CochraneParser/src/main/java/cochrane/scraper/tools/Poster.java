@@ -1,4 +1,4 @@
-package cochrane.parser.tools;
+package cochrane.scraper.tools;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package cochrane.parser;
+package cochrane.scraper;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,8 +8,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import cochrane.parser.tools.Getter;
-import cochrane.parser.tools.URLEncoder;
+import cochrane.scraper.tools.Getter;
+import cochrane.scraper.tools.URLEncoder;
 
 public class CochraneTopicIterator {
 	public ArrayList<String> topics = new ArrayList<String>();

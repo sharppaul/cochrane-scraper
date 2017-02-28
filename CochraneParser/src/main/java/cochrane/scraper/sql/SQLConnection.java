@@ -1,4 +1,4 @@
-package cochrane.parser.sql;
+package cochrane.scraper.sql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

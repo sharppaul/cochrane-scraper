@@ -1,4 +1,4 @@
-package cochrane.parser.tools;
+package cochrane.scraper.tools;
 
 public class URLEncoder {
 	public static String encode(String input) {

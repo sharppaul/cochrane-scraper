@@ -1,4 +1,4 @@
-package cochrane.parser;
+package cochrane.scraper;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -10,8 +10,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import cochrane.parser.sql.SQLConnection;
-import cochrane.parser.tools.Getter;
+import cochrane.scraper.sql.SQLConnection;
+import cochrane.scraper.tools.Getter;
 
 public class CochraneReferencesParser extends Thread {
 	private String cochraneId;

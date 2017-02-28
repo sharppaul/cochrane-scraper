@@ -1,12 +1,12 @@
-package cochrane.parser;
+package cochrane.scraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import cochrane.parser.sql.SQLConnection;
-import cochrane.parser.tools.Getter;
+import cochrane.scraper.sql.SQLConnection;
+import cochrane.scraper.tools.Getter;
 
 public class CochraneArticleIterator extends Thread {
 	private String outputDir;
