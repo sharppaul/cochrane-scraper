@@ -1,3 +1,8 @@
+--Run this code with mysql, preferably by a root user (mysql user, not necissarily root unix user)
+-- You can run this file by going to the mysql terminal: 'mysql -u <user> -p'
+-- within mysql you can type each command one by one or run the file itself.
+
+
 --Create user paul, with the password. 
 --(Password is not to be secure, but just to have something in place. 
 -- The security is closing SQL for external connections, 
